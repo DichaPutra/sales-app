@@ -18,15 +18,20 @@ use App\Http\Controllers\CustomerController;
 Route::get('/', function () {
     return view('welcome');
 });
-// ATASAN
+//TARGET
 Route::get('/target', [TargetController::class, 'index'])->name('target');
 Route::post('/updatetarget', [TargetController::class, 'updateTarget'])->name('updatetarget');
 
+//CUSTOMER
 Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 Route::get('/tambahcustomer', [CustomerController::class, 'tambahCustomer'])->name('tambahcustomer');
 Route::post('/insertcustomer', [CustomerController::class, 'insertCustomer'])->name('insertcustomer');
 Route::get('/detailcustomer/{id}', [CustomerController::class, 'detailCustomer'])->name('detailcustomer');
 
+//LOGIN
+Route::get('/login2', function () {
+    return view('login2');
+});
 
 Route::get('/capaian', function () {
     return view('capaian');
@@ -43,6 +48,8 @@ Route::get('/kunjungan', function () {
 Route::get('/tambahkunjungan', function () {
     return view('tambahkunjungan');
 });
+
+
 
 Auth::routes();
 
