@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TargetController;
+use App\Http\Controllers\CustomerController;
 
 /*
   |--------------------------------------------------------------------------
@@ -21,10 +22,10 @@ Route::get('/', function () {
 Route::get('/target', [TargetController::class, 'index'])->name('target');
 Route::post('/updatetarget', [TargetController::class, 'updateTarget'])->name('updatetarget');
 
-Route::get('/customer', 'CustomerController@index')->name('customer');
-Route::get('/tambahcustomer', 'CustomerController@tambahCustomer')->name('tambahcustomer');
-Route::post('/insertcustomer', 'CustomerController@insertCustomer')->name('insertcustomer');
-Route::get('/detailcustomer/{id}', 'CustomerController@detailCustomer')->name('detailcustomer');
+Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
+Route::get('/tambahcustomer', [CustomerController::class, 'tambahCustomer'])->name('tambahcustomer');
+Route::post('/insertcustomer', [CustomerController::class, 'insertCustomer'])->name('insertcustomer');
+Route::get('/detailcustomer/{id}', [CustomerController::class, 'detailCustomer'])->name('detailcustomer');
 
 
 Route::get('/capaian', function () {
@@ -42,10 +43,6 @@ Route::get('/kunjungan', function () {
 Route::get('/tambahkunjungan', function () {
     return view('tambahkunjungan');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

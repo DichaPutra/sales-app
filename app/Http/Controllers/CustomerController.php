@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\customer;
+use App\Models\customer;
 
 class CustomerController extends Controller {
 
-    public function index() {
+    public function index()
+    {
         //echo "customer controller";
-        $db = customer::select('customer_id','nama_perusahaan', 'alamat', 'contact_no_perusahaan')->get();
+        $db = customer::select('customer_id', 'nama_perusahaan', 'alamat', 'contact_no_perusahaan')->get();
 
         // Var pass to View
         $data = array(
@@ -21,12 +22,14 @@ class CustomerController extends Controller {
         return view('customer')->with($data);
     }
 
-    public function tambahCustomer() {
+    public function tambahCustomer()
+    {
         // view form tambah customer
         return view('tambahcustomer');
     }
 
-    public function insertCustomer(Request $request) {
+    public function insertCustomer(Request $request)
+    {
         // get data
         $request->all();
 
@@ -47,7 +50,8 @@ class CustomerController extends Controller {
         return redirect()->route('customer');
     }
 
-    public function detailCustomer($id) {
+    public function detailCustomer($id)
+    {
         //get data from db
         $db = customer::select('nama_perusahaan', 'alamat', 'contact_no_perusahaan', 'nama_pic', 'email', 'contact_no_pic', 'twitter', 'fb', 'wa')
                 ->where('customer_id', $id)
