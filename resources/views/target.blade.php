@@ -40,7 +40,7 @@
                                         <div class="card-body">
                                             <form action="{{url('updatetarget')}}" method="post" >
                                                 {{ csrf_field() }}
-                                                <div class="card-title">Target Kunjungan (date + 1) : 
+                                                <div class="card-title">Target Kunjungan ({{ date('j F Y', strtotime('+1 day'))}}) : 
                                                     {{$target}} 
 
                                                     <h5></h5>
