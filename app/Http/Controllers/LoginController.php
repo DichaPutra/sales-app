@@ -32,7 +32,7 @@ class LoginController extends Controller {
                 echo 'Berhasil login';
             } else {
                 // password salah
-                $pesan = 'Error, password not match';
+                $pesan = 'Error, wrong password';
                 return view('login', ["pesan" => $pesan]);
             }
         } else {
