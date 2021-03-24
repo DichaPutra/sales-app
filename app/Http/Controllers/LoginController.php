@@ -20,15 +20,16 @@ class LoginController extends Controller {
     public function dologin(Request $request) {
         // get data
         $request->all();
-        $email = $request->email;
+        $username = $request->username;
         $password = $request->password;
         //var_dump($email);
         // check email pass 
-        if ($dbuser = user::where('email', '=', $email)->first()) {
+        if ($dbuser = user::where('username', '=', $username)->first()) {
             $dbpass = $dbuser->password;
 
             if ($dbpass == $password) {
                 // login sukses
+                session(['user' => $dbuser->username]);
                 echo 'Berhasil login';
             } else {
                 // password salah
@@ -37,7 +38,7 @@ class LoginController extends Controller {
             }
         } else {
             //email tidak di temukan
-            $pesan = 'Error, email not found';
+            $pesan = 'Error, username not found';
             return view('login', ["pesan" => $pesan]);
         }
     }

@@ -10,7 +10,7 @@ class CustomerController extends Controller {
     public function index()
     {
         //echo "customer controller";
-        $db = customer::select('customer_id', 'nama_perusahaan', 'alamat', 'contact_no_perusahaan')->get();
+        $db = customer::select('id', 'nama_perusahaan', 'alamat', 'contact_no_perusahaan')->get();
 
         // Var pass to View
         $data = array(

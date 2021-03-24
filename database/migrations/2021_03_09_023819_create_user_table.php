@@ -23,6 +23,12 @@ class CreateUserTable extends Migration {
             //$table->id();
             //$table->timestamps();
         });
+
+        DB::table('user')->insert(
+                [
+                    ['username' => 'admin', 'name' => 'admin', 'email' => 'admin', 'password' => 'admin', 'tipe' => 'admin']
+                ]
+        );
     }
 
     /**

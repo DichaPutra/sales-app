@@ -17,6 +17,12 @@ class CreateTargetTable extends Migration {
             $table->integer('target');
             $table->timestamps();
         });
+
+        DB::table('target')->insert(
+                [
+                    ['id' => '1', 'target' => '1']
+                ]
+        );
     }
 
     /**
