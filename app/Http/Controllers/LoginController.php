@@ -30,10 +30,10 @@ class LoginController extends Controller {
                 if ($dbuser->tipe == 'admin') {
                     echo 'page admin';
                 } elseif ($dbuser->tipe == 'atasan') {
-                    session(['username' => $dbuser->username]);
+                    session(['username' => $dbuser->username, 'tipe' => 'atasan']);
                     return redirect()->route('target');
                 } elseif ($dbuser->tipe == 'sales') {
-                    session(['username' => $dbuser->username]);
+                    session(['username' => $dbuser->username, 'tipe' => 'sales']);
                     return redirect()->route('kunjungan');
                 }
             } else {

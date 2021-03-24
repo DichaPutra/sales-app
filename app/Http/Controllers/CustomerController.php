@@ -7,29 +7,30 @@ use App\Models\customer;
 
 class CustomerController extends Controller {
 
-    public function index()
-    {
-        //echo "customer controller";
-        $db = customer::select('id', 'nama_perusahaan', 'alamat', 'contact_no_perusahaan')->get();
+    public function index() {
+        if ((session('username') != null) && session('tipe') == 'atasan') {
+            //echo "customer controller";
+            $db = customer::select('id', 'nama_perusahaan', 'alamat', 'contact_no_perusahaan')->get();
 
-        // Var pass to View
-        $data = array(
-            'customer' => $db,
-            'Description' => 'This is New Application',
-            'author' => 'foo'
-        );
+            // Var pass to View
+            $data = array(
+                'customer' => $db,
+                'Description' => 'This is New Application',
+                'author' => 'foo'
+            );
 
-        return view('customer')->with($data);
+            return view('customer')->with($data);
+        } else {
+            return redirect()->route('relogin');
+        }
     }
 
-    public function tambahCustomer()
-    {
+    public function tambahCustomer() {
         // view form tambah customer
         return view('tambahcustomer');
     }
 
-    public function insertCustomer(Request $request)
-    {
+    public function insertCustomer(Request $request) {
         // get data
         $request->all();
 
@@ -50,8 +51,7 @@ class CustomerController extends Controller {
         return redirect()->route('customer');
     }
 
-    public function detailCustomer($id)
-    {
+    public function detailCustomer($id) {
         //get data from db
         $db = customer::select('nama_perusahaan', 'alamat', 'contact_no_perusahaan', 'nama_pic', 'email', 'contact_no_pic', 'twitter', 'fb', 'wa')
                 ->where('customer_id', $id)
