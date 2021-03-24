@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TargetController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 
 /*
   |--------------------------------------------------------------------------
@@ -23,7 +24,10 @@ Route::get('/welcome', function () {
 //LOGIN
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/dologin', [LoginController::class, 'dologin'])->name('dologin');
-Route::get('/loginform', function () {return view('login2');});
+
+//LOGOUT
+Route::get('/', [LoginController::class, 'index'])->name('relogin');
+Route::get('/dologout', [LogoutController::class, 'index'])->name('dologout');
 
 //TARGET
 Route::get('/target', [TargetController::class, 'index'])->name('target');
@@ -45,7 +49,7 @@ Route::get('/laporan', function () {
 
 Route::get('/kunjungan', function () {
     return view('kunjungan');
-});
+})->name('kunjungan');
 
 Route::get('/tambahkunjungan', function () {
     return view('tambahkunjungan');

@@ -26,7 +26,9 @@ class CreateUserTable extends Migration {
 
         DB::table('user')->insert(
                 [
-                    ['username' => 'admin', 'name' => 'admin', 'email' => 'admin', 'password' => 'admin', 'tipe' => 'admin']
+                    ['username' => 'admin', 'name' => 'admin', 'email' => 'admin', 'password' => 'admin', 'tipe' => 'admin'],
+                    ['username' => 'atasan', 'name' => 'atasan', 'email' => 'atasan', 'password' => 'atasan', 'tipe' => 'atasan'],
+                    ['username' => 'sales', 'name' => 'sales', 'email' => 'sales', 'password' => 'sales', 'tipe' => 'sales']
                 ]
         );
     }

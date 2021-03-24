@@ -41,7 +41,7 @@
                 </li>
                 <li class="nav-item">
                     <div class="nav-link d-flex">
-                        <a class="text-white"><i class="mdi mdi-logout"></i></a>
+                        <a href="{{route('dologout')}}" class="text-white"><i class="mdi mdi-logout"></i></a>
                     </div>
                 </li>
             </ul>

@@ -25,12 +25,17 @@ class LoginController extends Controller {
         //var_dump($email);
         // check email pass 
         if ($dbuser = user::where('username', '=', $username)->first()) {
-            $dbpass = $dbuser->password;
-
-            if ($dbpass == $password) {
+            if ($dbuser->password == $password) {
                 // login sukses
-                session(['user' => $dbuser->username]);
-                echo 'Berhasil login';
+                if ($dbuser->tipe == 'admin') {
+                    echo 'page admin';
+                } elseif ($dbuser->tipe == 'atasan') {
+                    session(['username' => $dbuser->username]);
+                    return redirect()->route('target');
+                } elseif ($dbuser->tipe == 'sales') {
+                    session(['username' => $dbuser->username]);
+                    return redirect()->route('kunjungan');
+                }
             } else {
                 // password salah
                 $pesan = 'Error, wrong password';
