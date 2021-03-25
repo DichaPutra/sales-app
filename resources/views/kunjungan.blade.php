@@ -35,7 +35,7 @@
                         <div class="col-sm-12 stretch-card grid-margin">
                             <div class="card">
                                 <div class="row">
-                                    <div class="col-md-12"
+                                    <div class="col-md-12">
                                     <div class="card border-1">
                                         <div class="card-body">
                                             <form>
@@ -44,6 +44,33 @@
                                                     <button type="button" class="btn btn-primary pull-right mb-4"><a class="text-white" href="tambahkunjungan" style="text-decoration:none">Input Kunjungan</a></button>
                                                 </div>
                                             </form>
+                                            <div class="table-responsive">
+                                            <table class="table table-striped" id="contact-detail" class="jw-table" cellspacing="0" width="100%">
+                                                <thead><tbody>
+                                                    <tr>
+                                                        <th class="priority-5" width="10%"><span><b><center>No.</center><b></span></th>
+                                                        <th scope="row"><center><b>Keterangan</b></center></th>
+                                                        <th scope="row"><center><b>Status</b></center></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="priority-5"><center>1</center></td>
+                                                        <td scope="row" class="title">PT. Pakerin</center></td>
+                                                        <td bgcolor="#00FF00"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="priority-5"><center>2</center></td>
+                                                        <td scope="row" class="title">Tidak ada kunjungan</td>
+                                                        <td bgcolor="yellow"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="priority-5"><center>3</center></td>
+                                                        <td scope="row" class="title">Tidak ada kunjungan</td>
+                                                        <td bgcolor="red"></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </thead>
+                                            </table>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -54,11 +81,6 @@
             </div>
         </div>
         <!-- last row starts here -->
-        <div class="row">
-            <div class="col-sm-6 col-xl-4 stretch-card grid-margin">
-
-            </div>
-        </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
@@ -75,6 +97,26 @@
 </div>
 <!-- page-body-wrapper ends -->
 </div>
+<style>
+@media screen and (max-width: 900px) and (min-width: 550px) {
+  .priority-5{
+    display:none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .priority-5{
+    display:none;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .priority-5{
+    display:none;
+  }
+
+}
+</style>
 <!-- container-scroller -->
 <!-- plugins:js -->
 <script src="../assets/vendors/js/vendor.bundle.base.js"></script>

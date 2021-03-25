@@ -24,7 +24,7 @@
                 $(document).pngFix( );
             });
         </script>
-
+        <link rel="shortcut icon" href="../assets/images/econ.png" />
     </head>
 
     <body class="body-Login-back">
@@ -39,6 +39,7 @@
                     <div class="login-panel panel panel-default">                  
                         <div class="panel-heading">
                             <br><br><br><br><br>
+                            <center><img src="../assets/images/econ.png" width="45%"></center>
                             <h3 class="panel-title"><center>Sales Project</center></h3><br>
                         </div>
                         <div class="panel-body">
@@ -55,20 +56,15 @@
                                     <div style="color: red">{{$pesan}}</div><br>
                                     <input type="submit" class="btn btn-lg btn-primary btn-block" name="login" value="Login"/>
                                 </fieldset>
-
-                                
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Core Scripts - Include with every page -->
         <script src="assets/plugins/jquery-1.10.2.js"></script>
         <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
         <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-
     </body>
-
 </html>
