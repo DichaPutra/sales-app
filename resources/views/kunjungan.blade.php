@@ -55,17 +55,17 @@
                                                     <tr>
                                                         <td class="priority-5"><center>1</center></td>
                                                         <td scope="row" class="title">PT. Pakerin</center></td>
-                                                        <td bgcolor="#00FF00"></td>
+                                                        <td><center><div class="box-hijau"></div></center></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="priority-5"><center>2</center></td>
                                                         <td scope="row" class="title">Tidak ada kunjungan</td>
-                                                        <td bgcolor="yellow"></td>
+                                                        <td><center><div class="box-merah"></center></div></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="priority-5"><center>3</center></td>
                                                         <td scope="row" class="title">Tidak ada kunjungan</td>
-                                                        <td bgcolor="red"></td>
+                                                        <td><center><div class="box-kuning"></div></center></td>
                                                     </tr>
                                                     </tbody>
                                                 </thead>
@@ -98,6 +98,12 @@
 <!-- page-body-wrapper ends -->
 </div>
 <style>
+    div{
+    }
+   .box-kuning{ width: 20px; height:20px; background: #FFD700; border-radius: 100%}
+   .box-hijau{ width: 20px; height:20px; background: #7FFF00; border-radius: 100%}
+   .box-merah{ width: 20px; height:20px; background: red; border-radius: 100%}
+
 @media screen and (max-width: 900px) and (min-width: 550px) {
   .priority-5{
     display:none;
