@@ -5,6 +5,7 @@ use App\Http\Controllers\TargetController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\KunjunganController;
 
 /*
   |--------------------------------------------------------------------------
@@ -47,14 +48,12 @@ Route::get('/laporan', function () {
     return view('laporan');
 });
 
+//KUNJUNGAN
 Route::get('/kunjungan', function () {
     return view('kunjungan');
 })->name('kunjungan');
 
-Route::get('/tambahkunjungan', function () {
-    return view('tambahkunjungan');
-});
 
+Route::get('/tambahkunjungan', [KunjunganController::class, 'TambahKunjunganForm'])->name('tambahKunjungan');
+Route::post('/insertkunjungan', [KunjunganController::class, 'insertKunjunganForm'])->name('insertKunjungan');
 
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
