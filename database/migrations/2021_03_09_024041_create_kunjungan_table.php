@@ -21,13 +21,11 @@ class CreateKunjunganTable extends Migration {
             $table->BigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('user');
 //            $table->foreignId('customer_id')->constrained();
-            $table->BigInteger('customer_id')->unsigned();
-            $table->foreign('customer_id')->references('id')->on('customer');
-            
-            $table->integer('target');
-            $table->integer('tanggal');
-            $table->integer('bulan');
-            $table->integer('tahun');
+            $table->string('nama_perusahaan');
+            $table->integer('target')->nullable();
+            $table->integer('tanggal')->nullable();
+            $table->integer('bulan')->nullable();
+            $table->integer('tahun')->nullable();
             $table->date('waktu_kunjungan');
             $table->string('nama_pic');
             $table->string('contact_no_pic');
@@ -36,7 +34,7 @@ class CreateKunjunganTable extends Migration {
             $table->date('waktu_pembelian');
             $table->string('lainlain');
             $table->string('foto');
-            $table->string('alasan');
+            $table->string('alasan')->nullable();
         });
     }
 

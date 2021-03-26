@@ -37,16 +37,17 @@ class KunjunganController extends Controller {
 //            echo "$namapic | $kontakpic | $produk | $kisaranharga | $waktu | $lainlain | $filefoto";
             $dbkunjungan = new kunjungan;
             $dbkunjungan->user_id = session('userid');
-            $dbkunjungan->customer_id = $request->customer;
-            $dbkunjungan->namapic = $request->namapic;
-            $dbkunjungan->kontakpic = $request->kontakpic;
+            $dbkunjungan->nama_perusahaan = $request->customer;
+            $dbkunjungan->nama_pic = $request->namapic;
+            $dbkunjungan->contact_no_pic = $request->kontakpic;
             $dbkunjungan->produk = $request->produk;
-            $dbkunjungan->kisaranharga = $request->kisaranharga;
-            $dbkunjungan->waktu = $request->waktu;
+            $dbkunjungan->harga = $request->kisaranharga;
+            $dbkunjungan->waktu_pembelian = $request->waktu;
             $dbkunjungan->lainlain = $request->lainlain;
-            $dbkunjungan->filefoto = $request->filefoto->store('public/fotokunjungan');
+            $dbkunjungan->foto = $request->filefoto->store('public/fotokunjungan');
+            $dbkunjungan->save();
 
-            return redirect()->route('tambahKunjungan');
+            return redirect()->route('kunjungan');
         } elseif ($kunjungan = 'belum') {
             $alasan = $request->alasan;
             dd($alasan);
