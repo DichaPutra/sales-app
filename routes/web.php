@@ -49,10 +49,7 @@ Route::get('/laporan', function () {
 });
 
 //KUNJUNGAN
-Route::get('/kunjungan', function () {
-    return view('kunjungan');
-})->name('kunjungan');
-
+Route::get('/kunjungan', [KunjunganController::class, 'index'])->name('kunjungan');
 
 Route::get('/tambahkunjungan', [KunjunganController::class, 'TambahKunjunganForm'])->name('tambahKunjungan');
 Route::post('/insertkunjungan', [KunjunganController::class, 'insertKunjunganForm'])->name('insertKunjungan');
