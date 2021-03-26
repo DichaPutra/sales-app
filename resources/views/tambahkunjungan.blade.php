@@ -38,33 +38,43 @@
                                 </div>
                                 <br>
                                 <h4 class="card-title"></h4>
-                                <form action={{route('insertKunjungan')}} class="forms-sample" method="post">
+                                <form action={{route('insertKunjungan')}} class="forms-sample" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <input type="radio" name="kunjungan" id="radio1" value="sudah" class="detail"> <label>Telah Melakukan Kunjungan</label><br>
                                     <input type="radio" name="kunjungan" id="radio2" value="belum" class="detail"> <label>Belum Melakukan Kunjungan</label>
                                     <br><br>
                                     <div id="sudah" class="form-group" style="display: none">
+
                                         <center><h4>Feedback Kunjungan</h4></center><br>
+                                        
+                                        <label for="nama_pic">Customer</label>
+                                        <input name="customer" class="form-control" type="text" list="cars" />
+                                        <datalist id="cars">
+                                            @foreach ($customer as $cust)
+                                            <option value="{{$cust->nama_perusahaan}}">{{$cust->nama_perusahaan}}</option>
+                                            @endforeach
+                                        </datalist><br>
+
                                         <label for="nama_pic">Nama PIC yang ditemui</label>
                                         <input name="namapic" type="text" class="form-control" id="nama_pic"><br>
 
                                         <label for="contact_no_pic">Kontak PIC yang ditemui</label>
-                                        <input name="kontakpic" type="text" class="form-control" id="contact_no_pic"><br>
+                                        <input name="kontakpic" type="number" class="form-control" id="contact_no_pic"><br>
 
                                         <label for="produk">Produk yang akan dibeli</label>
                                         <textarea name="produk"class="form-control" id="produk"></textarea><br>
 
                                         <label for="harga">Kisaran Harga</label>
-                                        <input name="kisanharga" type="text" class="form-control" id="harga"><br>
+                                        <input name="kisaranharga" type="number" min="1" step="any" class="form-control" id="harga"><br>
 
                                         <label for="waktu_pembelian">Perkiraan Waktu Pembelian</label>
-                                        <input name="waktu"type="text" class="form-control" id="waktu_pembelian"><br>
+                                        <input name="waktu" class="form-control" type="date" value="" id="example-date-input"><br>
 
                                         <label for="lainlain">Lain - Lain</label>
                                         <textarea name="lainlain" type="text" class="form-control" id="lainlain"></textarea><br>
 
                                         <label for="foto">Foto saat kunjungan</label><br>
-                                        <input type="file">
+                                        <input name="filefoto" type="file" accept="image/x-png,image/gif,image/jpeg" >
 <!--                                        <input name="foto" type="file" name="img[]" class="file-upload-default" />
 
                                         <div class="input-group col-xs-12">
@@ -74,15 +84,15 @@
                                             </span>
                                         </div>-->
                                         <br><br<br><br>
-                                        <button type="submit" class="btn btn-primary mr-2"> Submit </button>
+                                        <input type="submit" class="btn btn-primary mr-2" value="Submit">
                                         <button class="btn btn-light">Clear</button>
                                     </div>
                                     <div id="belum" class="form-group" style="display: none">
                                         <center><h4>Feedback Kunjungan</h4></center>
                                         <label for="nama_pic">Alasan:</label>
-                                        <textarea class="form-control" id="produk"></textarea>
+                                        <textarea name="alasan" class="form-control" id="produk"></textarea>
                                         <br>
-                                        <button type="submit" class="btn btn-primary mr-2"> Submit </button>
+                                        <input type="submit" class="btn btn-primary mr-2" value="Submit">
                                         <button class="btn btn-light">Clear</button>
                                     </div>
 
@@ -117,16 +127,16 @@
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
             <script type="text/javascript">
 
-                $(function () {
-                    $(":radio.detail").click(function () {
-                        $("#sudah, #belum").hide()
-                        if ($(this).val() == "sudah") {
-                            $("#sudah").show();
-                        } else {
-                            $("#belum").show();
-                        }
-                    });
-                });
+$(function () {
+    $(":radio.detail").click(function () {
+        $("#sudah, #belum").hide()
+        if ($(this).val() == "sudah") {
+            $("#sudah").show();
+        } else {
+            $("#belum").show();
+        }
+    });
+});
             </script>
             <!-- Plugin js for this page -->
             <script src="../assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>

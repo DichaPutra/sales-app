@@ -8,13 +8,8 @@ use App\Models\user;
 class LoginController extends Controller {
 
     public function index() {
-        // Var pass to View
-        $data = array(
-            'pesan' => '',
-            'Description' => 'pass data 2',
-            'author' => 'pass data 3'
-        );
-        return view('login')->with($data);
+
+        return view('login');
     }
 
     public function dologin(Request $request) {
@@ -30,10 +25,10 @@ class LoginController extends Controller {
                 if ($dbuser->tipe == 'admin') {
                     echo 'page admin';
                 } elseif ($dbuser->tipe == 'atasan') {
-                    session(['username' => $dbuser->username, 'tipe' => 'atasan']);
+                    session(['userid'=>$dbuser->id,'username' => $dbuser->username, 'tipe' => 'atasan']);
                     return redirect()->route('target');
                 } elseif ($dbuser->tipe == 'sales') {
-                    session(['username' => $dbuser->username, 'tipe' => 'sales']);
+                    session(['userid'=>$dbuser->id,'username' => $dbuser->username, 'tipe' => 'sales']);
                     return redirect()->route('kunjungan');
                 }
             } else {

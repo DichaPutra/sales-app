@@ -62,7 +62,7 @@ class CustomerController extends Controller {
     public function detailCustomer($id) {
         //get data from db
         $db = customer::select('nama_perusahaan', 'alamat', 'contact_no_perusahaan', 'nama_pic', 'email', 'contact_no_pic', 'twitter', 'fb', 'wa')
-                ->where('customer_id', $id)
+                ->where('id', $id)
                 ->first();
 
         // Var pass to View

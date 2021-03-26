@@ -52,5 +52,5 @@ Route::get('/laporan', function () {
 Route::get('/kunjungan', [KunjunganController::class, 'index'])->name('kunjungan');
 
 Route::get('/tambahkunjungan', [KunjunganController::class, 'TambahKunjunganForm'])->name('tambahKunjungan');
-Route::post('/insertkunjungan', [KunjunganController::class, 'insertKunjunganForm'])->name('insertKunjungan');
+Route::post('/insertkunjungan', [KunjunganController::class, 'insertKunjungan'])->name('insertKunjungan');
 
