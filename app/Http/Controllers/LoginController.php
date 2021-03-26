@@ -7,9 +7,23 @@ use App\Models\user;
 
 class LoginController extends Controller {
 
+    public function __construct() {
+        //Ambil session di constructor
+        $this->middleware(function ($request, $next) {
+            //cek session jiga blm login -> kembalikan ke halaman login
+            $username = session('username');
+            if (session('tipe') == 'atasan') {
+                return redirect()->route('target');
+            } elseif (session('tipe') == 'sales') {
+                return redirect()->route('kunjungan');
+            }
+            return $next($request);
+        });
+    }
+
     public function index() {
 
-        return view('login');
+        return view('login', ['pesan' => '']);
     }
 
     public function dologin(Request $request) {
@@ -25,10 +39,10 @@ class LoginController extends Controller {
                 if ($dbuser->tipe == 'admin') {
                     echo 'page admin';
                 } elseif ($dbuser->tipe == 'atasan') {
-                    session(['userid'=>$dbuser->id,'username' => $dbuser->username, 'tipe' => 'atasan']);
+                    session(['userid' => $dbuser->id, 'username' => $dbuser->username, 'tipe' => 'atasan']);
                     return redirect()->route('target');
                 } elseif ($dbuser->tipe == 'sales') {
-                    session(['userid'=>$dbuser->id,'username' => $dbuser->username, 'tipe' => 'sales']);
+                    session(['userid' => $dbuser->id, 'username' => $dbuser->username, 'tipe' => 'sales']);
                     return redirect()->route('kunjungan');
                 }
             } else {
