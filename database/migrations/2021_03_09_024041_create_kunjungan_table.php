@@ -27,14 +27,15 @@ class CreateKunjunganTable extends Migration {
             $table->integer('bulan')->nullable();
             $table->integer('tahun')->nullable();
             $table->timestamp('waktu_kunjungan')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->string('nama_pic');
-            $table->string('contact_no_pic');
-            $table->string('produk');
-            $table->integer('harga');
-            $table->date('waktu_pembelian');
-            $table->string('lainlain');
-            $table->string('foto');
+            $table->string('nama_pic')->nullable();
+            $table->string('contact_no_pic')->nullable();
+            $table->string('produk')->nullable();
+            $table->integer('harga')->nullable();
+            $table->date('waktu_pembelian')->nullable();
+            $table->string('lainlain')->nullable();
+            $table->string('foto')->nullable();
             $table->string('alasan')->nullable();
+            $table->string('status');
         });
     }
 

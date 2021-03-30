@@ -40,35 +40,48 @@
                                         <div class="card-body">
                                             <form>
                                                 <div class="card-title">
-                                                    <h6>Target kunjungan anda hari ini : </h6><br>
-                                                    <button type="button" class="btn btn-primary pull-right mb-4"><a class="text-white" href="tambahkunjungan" style="text-decoration:none">Input Kunjungan</a></button>
+                                                    <h6>Target kunjungan anda hari ini : {{$target}}</h6><br>
+                                                    <h6>Jumlah Kunjungan anda hari ini : {{$todaykunjungan}}</h6><br>
+                                                    <h6>Sisa Kunjungan : {{$sisakunjungan}}</h6><br>
+                                                    
+                                                    @if($sisakunjungan <= 0)
+                                                        <button type="button" class="btn btn-secondary pull-right mb-4"><a class="text-white" href="#" style="text-decoration:none">Input Kunjungan</a></button>
+                                                    @else
+                                                        <button type="button" class="btn btn-primary pull-right mb-4"><a class="text-white" href="tambahkunjungan" style="text-decoration:none">Input Kunjungan</a></button>
+                                                    @endif
                                                 </div>
                                             </form>
                                             <div class="table-responsive">
                                             <table class="table table-striped" id="contact-detail" class="jw-table" cellspacing="0" width="100%">
-                                                <thead><tbody>
-                                                    <tr>
-                                                        <th class="priority-5" width="10%"><span><b><center>No.</center><b></span></th>
-                                                        <th scope="row"><center><b>Keterangan</b></center></th>
-                                                        <th scope="row"><center><b>Status</b></center></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="priority-5"><center>1</center></td>
-                                                        <td scope="row" class="title">PT. Pakerin</center></td>
-                                                        <td><center><div class="box-hijau"></div></center></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="priority-5"><center>2</center></td>
-                                                        <td scope="row" class="title">Tidak ada kunjungan</td>
-                                                        <td><center><div class="box-merah"></center></div></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="priority-5"><center>3</center></td>
-                                                        <td scope="row" class="title">Tidak ada kunjungan</td>
-                                                        <td><center><div class="box-kuning"></div></center></td>
-                                                    </tr>
+                                                <thead></thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="priority-5" width="10%"><span><b><center>No.</center><b></span></th>
+                                                            <th scope="row"><center><b>Keterangan</b></center></th>
+                                                            <th scope="row"><center><b>Status</b></center></th>
+                                                        </tr>
+                                                        <?php $no=1?>
+                                                        @foreach($alldailykunjungan as $dt)
+                                                        <tr>
+                                                            <td class="priority-5"><center>{{$no}}</center></td>
+                                                            <td scope="row" class="title">{{$dt->nama_perusahaan}}</center></td>
+                                                            <td>
+                                                            <center>
+                                                                @if ($dt->status == 'tercapai')  
+                                                                <div class="box-hijau"></div>
+                                                                @elseif ($dt->status == 'tidak tercapai')
+                                                                <div class="box-merah"></div>
+                                                                @elseif ($dt->status == 'ditolerir')
+                                                                <div class="box-kuning"></div>
+                                                                @endif
+                                                                
+                                                            </center>
+                                                            </td>
+                                                        </tr>
+                                                        <?php $no++?>
+                                                        @endforeach
                                                     </tbody>
-                                                </thead>
+                                                
                                             </table>
                                         </div>
                                         </div>
@@ -80,8 +93,10 @@
                 </div>
             </div>
         </div>
+        </div>
         <!-- last row starts here -->
         <!-- content-wrapper ends -->
+    </body>
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
             <div class="container">
