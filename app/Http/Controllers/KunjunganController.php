@@ -5,39 +5,52 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\kunjungan;
 use App\Models\customer;
+use App\Models\target;
 
 class KunjunganController extends Controller {
 
-    public function __construct() {
+    public function __construct()
+    {
         //Ambil session di constructor
         $this->middleware(function ($request, $next) {
             //cek session jiga blm login -> kembalikan ke halaman login
             $username = session('username');
-            if ((session('username') == null) && session('tipe') != 'sales') {
+            if ((session('username') == null) && session('tipe') != 'sales')
+            {
                 return redirect()->route('relogin');
             }
             return $next($request);
         });
     }
 
-    public function index() {
+    public function index()
+    {
         //Page depan Kunjungan
         return view('kunjungan');
     }
 
-    public function TambahKunjunganForm() {
+    public function TambahKunjunganForm()
+    {
         $db = customer::select('id', 'nama_perusahaan')->get();
-        return view('tambahkunjungan',['customer'=>$db]);
+        return view('tambahkunjungan', ['customer' => $db]);
     }
 
-    public function insertKunjungan(Request $request) {
+    public function insertKunjungan(Request $request)
+    {
         $kunjungan = $request->kunjungan;
-        if ($kunjungan == 'sudah') {
+        if ($kunjungan == 'sudah')
+        {
 
+            $tar = target::first();
+            
 //            echo "$namapic | $kontakpic | $produk | $kisaranharga | $waktu | $lainlain | $filefoto";
             $dbkunjungan = new kunjungan;
             $dbkunjungan->user_id = session('userid');
             $dbkunjungan->nama_perusahaan = $request->customer;
+            $dbkunjungan->target = $tar->target;
+            $dbkunjungan->tanggal= date('d');
+            $dbkunjungan->bulan = date('m');
+            $dbkunjungan->tahun = date('Y');
             $dbkunjungan->nama_pic = $request->namapic;
             $dbkunjungan->contact_no_pic = $request->kontakpic;
             $dbkunjungan->produk = $request->produk;
@@ -48,7 +61,9 @@ class KunjunganController extends Controller {
             $dbkunjungan->save();
 
             return redirect()->route('kunjungan');
-        } elseif ($kunjungan = 'belum') {
+        }
+        elseif ($kunjungan = 'belum')
+        {
             $alasan = $request->alasan;
             dd($alasan);
         }

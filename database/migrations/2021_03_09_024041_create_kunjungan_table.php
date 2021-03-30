@@ -26,7 +26,7 @@ class CreateKunjunganTable extends Migration {
             $table->integer('tanggal')->nullable();
             $table->integer('bulan')->nullable();
             $table->integer('tahun')->nullable();
-            $table->date('waktu_kunjungan');
+            $table->timestamp('waktu_kunjungan')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('nama_pic');
             $table->string('contact_no_pic');
             $table->string('produk');
