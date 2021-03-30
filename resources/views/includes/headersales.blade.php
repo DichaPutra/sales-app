@@ -16,7 +16,7 @@
             <ul class="nav page-navigation">
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('kunjungan')}}">
-                        <i class="mdi mdi-target menu-icon"></i>
+                        <i class="mdi mdi-playlist-check menu-icon"></i>
                         <span class="menu-title">Kunjungan</span>
                     </a>
                 </li>
