@@ -48,6 +48,10 @@ Route::get('/laporan', function () {
     return view('laporan');
 });
 
+Route::get('/coba', function () {
+    return view('coba');
+});
+
 //KUNJUNGAN
 Route::get('/kunjungan', [KunjunganController::class, 'index'])->name('kunjungan');
 Route::get('/tambahkunjungan', [KunjunganController::class, 'TambahKunjunganForm'])->name('tambahKunjungan');

@@ -20,7 +20,12 @@
                         <span class="menu-title">Target Kunjungan</span>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('kunjungan')}}">
+                        <i class="mdi mdi-target menu-icon"></i>
+                        <span class="menu-title">Kunjungan</span>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('capaian')}}">
                         <i class="mdi mdi-chart-bar menu-icon"></i>
@@ -35,7 +40,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('customer')}}">
-                        <i class="mdi mdi-account-multiple menu-icon"></i>
+                        <i class="mdi mdi-account-box-multiple menu-icon"></i>
                         <span class="menu-title">Customer</span>
                     </a>
                 </li>

@@ -27,6 +27,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{url('customer')}}">
+                        <i class="mdi mdi-account menu-icon"></i>
+                        <span class="menu-title">User</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <div class="nav-link d-flex">
                         <a href="{{route('dologout')}}" class="text-white"><i class="mdi mdi-logout"></i></a>
                     </div>
