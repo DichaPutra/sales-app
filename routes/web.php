@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\KunjunganController;
+use App\Http\Controllers\CapaianController;
 
 /*
   |--------------------------------------------------------------------------
@@ -40,9 +41,11 @@ Route::get('/tambahcustomer', [CustomerController::class, 'tambahCustomer'])->na
 Route::post('/insertcustomer', [CustomerController::class, 'insertCustomer'])->name('insertcustomer');
 Route::get('/detailcustomer/{id}', [CustomerController::class, 'detailCustomer'])->name('detailcustomer');
 
-Route::get('/capaian', function () {
-    return view('capaian');
-});
+//CAPAIAN
+Route::get('/capaian', [CapaianController::class, 'index'])->name('capaian');
+//Route::get('/capaian', function () {
+//    return view('capaian');
+//});
 
 Route::get('/laporan', function () {
     return view('laporan');
