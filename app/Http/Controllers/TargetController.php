@@ -34,8 +34,8 @@ class TargetController extends Controller {
         //     'author' => 'foo'
         // );
         // return view('target')->with($data);
-        
-        return view('target', ['target'=>$target, 'tes'=>'mantp']);
+
+        return view('target', ['target'=>$target]);
     }
 
     public function updateTarget(Request $request) {

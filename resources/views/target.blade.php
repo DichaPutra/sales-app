@@ -64,8 +64,6 @@
                                                 }
                                                 // strtotime('+1 day') {{ date('d').' '.($bulan[date('m')]).' '.date('Y')}}
                                                     ?>
-                                                    {{$tes}}
-
                                                     <div class="card-title">Target Kunjungan {{tgl_indo(date('Y-m-d',strtotime('+1 day')))}} : {{$target}} 
                                                         <h5></h5>
                                                         <button type="button" class="btn-primary pull-right mb-2" data-toggle="modal" data-target="#modalSaya"><i class="mdi mdi-pencil"></i></button>
