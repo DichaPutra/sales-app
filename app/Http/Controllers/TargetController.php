@@ -22,19 +22,20 @@ class TargetController extends Controller {
 
     public function index() {
         // Get data target
-        $db = DB::table('target')->where('id', 1)->first();
+        $db = target::where('id', 1)->first();
         //$db = target::find(1);
         $target = $db->target;
 
-
+        // versi lama
         // Var pass to View
-        $data = array(
-            'target' => $target,
-            'Description' => 'This is New Application',
-            'author' => 'foo'
-        );
-
-        return view('target')->with($data);
+        // $data = array(
+        //     'target' => $target,
+        //     // 'a' => 'ini percobaan',
+        //     'author' => 'foo'
+        // );
+        // return view('target')->with($data);
+        
+        return view('target', ['target'=>$target, 'tes'=>'mantp']);
     }
 
     public function updateTarget(Request $request) {

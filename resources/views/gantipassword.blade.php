@@ -41,7 +41,8 @@
                                             <div class="panel-body">
                                              <span class="mdi mdi-account menu-icon"> User Profile</span>
                                              <br><br>
-                                             <form method="get">
+                                             <form action="{{url('updatetarget')}}" method="post">
+                                                 {{ csrf_field() }}
                                                 <div class="form-group">
                                                     <input class="form-control" placeholder="Username" name="username" type="text" disabled>
                                                 </div>
