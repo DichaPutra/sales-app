@@ -44,87 +44,148 @@
                         <option>A</option>
                         <option>B</option>
                         <option>C</option>
-                    </select>
+                      </select>
+                    </div>
+                  </div>
                 </div>
+              </form>
+              <h4 class="card-title">Bulan</h4>
+              <form class="forms-sample">
+                <div class="container">
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <select name="namakaryawan" class="selectpicker form-control" data-live-search="true">
+                        <option>Januari</option>
+                        <option>Februari</option>
+                        <option>Maret</option>
+                        <option>April</option>
+                        <option>Mei</option>
+                        <option>Juni</option>
+                        <option>Juli</option>
+                        <option>Agustus</option>
+                        <option>September</option>
+                        <option>Oktober</option>
+                        <option>November</option>
+                        <option>Desember</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="table-responsive">
+                <table class="table table-striped" id="contact-detail" class="jw-table" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th class="priority-5" width="10%" height="50%" align="center" valign="middle"><b><center>Tgl.</center><b></th>
+                        <th scope="col" class="column-primary"><center><i class="mdi mdi-checkbox-marked-circle-outline" style="font-size:25px;color:green"></i></center></th>
+                        <th scope="col" class="column-primary"><center><i class="mdi mdi-minus-circle-outline" style="font-size:25px;color:red"></i></center></th>
+                        <th scope="col" class="column-primary"><center><i class="mdi mdi-alert-outline" style="font-size:25px;color:#FFD700"></i></center></th>
+                        <th scope="col" class="column-primary"><center><i class="mdi mdi-close" style="font-size:25px;color:red"></i></center></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="priority-5"><center>1</center></td>
+                        <td scope="row" class="title"><center>10</center></td>
+                        <td scope="row" class="title"><center>8</center></td>
+                        <td scope="row" class="title"><center>5</center></td>
+                        <td scope="row" class="title"><center>1</center></td>
+                      </tr>
+                      <tr>
+                        <td class="priority-5"><center>2</center></td>
+                        <td scope="row" class="title"><center>10</center></td>
+                        <td scope="row" class="title"><center>8</center></td>
+                        <td scope="row" class="title"><center>5</center></td>
+                        <td scope="row" class="title"><center>1</center></td>
+                      </tr>
+                      <tr>
+                        <td class="priority-5"><center>3</center></td>
+                        <td scope="row" class="title"><center>10</center></td>
+                        <td scope="row" class="title"><center>8</center></td>
+                        <td scope="row" class="title"><center>5</center></td>
+                        <td scope="row" class="title"><center>1</center></td>
+                      </tr>
+                      <tr style="display: none;">
+                        <td class="priority-5"><center>4</center></td>
+                        <td scope="row" class="title"><center>10</center></td>
+                        <td scope="row" class="title"><center>8</center></td>
+                        <td scope="row" class="title"><center>5</center></td>
+                        <td scope="row" class="title"><center>1</center></td>
+                      </tr>
+                      <tr style="display: none;">
+                        <td class="priority-5"><center>5</center></td>
+                        <td scope="row" class="title"><center>10</center></td>
+                        <td scope="row" class="title"><center>8</center></td>
+                        <td scope="row" class="title"><center>5</center></td>
+                        <td scope="row" class="title"><center>1</center></td>
+                      </tr>
+                      <tr style="display: none;">
+                        <td class="priority-5"><center>6</center></td>
+                        <td scope="row" class="title"><center>10</center></td>
+                        <td scope="row" class="title"><center>8</center></td>
+                        <td scope="row" class="title"><center>5</center></td>
+                        <td scope="row" class="title"><center>1</center></td>
+                      </tr>
+                      <tr style="display: none;">
+                        <td class="priority-5"><center>7</center></td>
+                        <td scope="row" class="title"><center>10</center></td>
+                        <td scope="row" class="title"><center>8</center></td>
+                        <td scope="row" class="title"><center>5</center></td>
+                        <td scope="row" class="title"><center>1</center></td>
+                      </tr>
+                    </tr>
+                    <tr>
+                      <td class="priority-5"><center><b>TOTAL</b></center></td>
+                      <td scope="row" class="title"><center><b>70</b></center></td>
+                      <td scope="row" class="title"><center><b>56</b></center></td>
+                      <td scope="row" class="title"><center><b>35</b></center></td>
+                      <td scope="row" class="title"><center><b>7</b></center></td>
+                    </tr>
+                  </tbody>
+                </div>
+              </div>
             </div>
-        </div>
-    </form>
-    <div class="table-responsive">
-        <table class="table table-striped" id="contact-detail" class="jw-table" cellspacing="0" width="100%">
-          <thead>
-            <tr>
-            <th class="priority-5" width="10%"><span><b><center>Tgl.</center><b></span></th>
-            <th scope="col" class="column-primary"><div class="box-kuning"></div></th>
-            <th scope="col" class="column-primary"><div class="box-kuning"></div></th></th>
-            <th scope="col" class="column-primary"><div class="box-kuning"></div></th></th>
-            <th scope="col" class="column-primary"><div class="box-kuning"></div></th></th>
-            </tr>
-        </thead>
-    <tbody>
-            <tr>
-            <td class="priority-5"><center>1</center></td>
-            <td scope="row" class="title">10</td>
-            <td scope="row" class="title">8</td>
-            <td scope="row" class="title">5</td>
-            <td scope="row" class="title">1</td>
-            </tr>
-    </tbody>
-</div>
-</div>
-</div>
-</td> 
-</tbody>
-</table>
-</div>
-</div>
+          </td> 
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 </div>
 <!-- last row starts here -->
 <div class="row">
-    <div class="col-sm-6 col-xl-4 stretch-card grid-margin">
+  <div class="col-sm-6 col-xl-4 stretch-card grid-margin">
 
-    </div>
+  </div>
 </div>
 <!-- content-wrapper ends -->
 <!-- partial:partials/_footer.html -->
 <footer class="footer">
-    <div class="container">
-      <div class="d-sm-flex justify-content-center justify-content-sm-between">
-        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © KPI Pakerin 2021</span>
-        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><a href="https://www.pakerin.co.id/" target="_blank">PT. Pakerin</a></span>
+  <div class="container">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+      <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © KPI Pakerin 2021</span>
+      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><a href="https://www.pakerin.co.id/" target="_blank">PT. Pakerin</a></span>
     </div>
-</div>
+  </div>
 </footer>
 <!-- partial -->
 </div>
 <!-- main-panel ends -->
 </div>
 <!-- page-body-wrapper ends -->
-<style>
-     div{
+<style> 
+  @media screen and (max-width: 550px) {
+    .priority-5{
+      display:none;
     }
-   .box-kuning{ width: 20px; height:20px; background: #FFD700; border-radius: 100%}
-   .box-hijau{ width: 20px; height:20px; background: #7FFF00; border-radius: 100%}
-   .box-merah{ width: 20px; height:20px; background: red; border-radius: 100%}
+  }
 
-    @media screen and (max-width: 900px) and (min-width: 550px) {
-      .priority-5{
-        display:none;
+  @media screen and (max-width: 300px) {
+    .priority-5{
+      display:none;
     }
-}
 
-@media screen and (max-width: 550px) {
-  .priority-5{
-    display:none;
-}
-}
-
-@media screen and (max-width: 300px) {
-  .priority-5{
-    display:none;
-}
-
-}
+  }
 </style>
 </div>
 <!-- container-scroller -->
@@ -143,8 +204,8 @@
     $i.addClass(arrow);
     
     return false;
-});
-})
+  });
+  })
 </script>
 <!-- plugins:js -->
 <script src="../assets/vendors/js/vendor.bundle.base.js"></script>

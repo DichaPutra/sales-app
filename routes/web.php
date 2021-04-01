@@ -49,7 +49,7 @@ Route::get('/capaian', [CapaianController::class, 'index'])->name('capaian');
 //});
 
 
-// USER
+// USER/GANTI PASSWORD
 Route::get('/gantipassword', [GantiPasswordController::class, 'index'])->name('gantipassword');
 Route::post('/gantipassword/', [GantiPasswordController::class, 'gantiPassword'])->name('update.gantipassword');
 // Route::get('/user', function () {
@@ -63,7 +63,6 @@ Route::get('/laporan', function () {
 Route::get('/coba', function () {
     return view('coba');
 });
-
 
 //KUNJUNGAN
 Route::get('/kunjungan', [KunjunganController::class, 'index'])->name('kunjungan');

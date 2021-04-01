@@ -42,6 +42,7 @@
                                              <span class="mdi mdi-account menu-icon"> User Profile</span>
                                              <br><br>
                                              <form action="{{route('update.gantipassword')}}" method="post">
+                                                {{ csrf_field() }}
                                                 <div class="form-group">
                                                     <input value="{{$user}}" class="form-control" placeholder="Username" name="username" type="text" disabled>
                                                 </div>
