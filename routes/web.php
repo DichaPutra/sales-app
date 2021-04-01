@@ -55,6 +55,14 @@ Route::get('/coba', function () {
     return view('coba');
 });
 
+Route::get('/user', function () {
+    return view('user');
+});
+
+Route::get('/gantipassword', function () {
+    return view('gantipassword');
+});
+
 //KUNJUNGAN
 Route::get('/kunjungan', [KunjunganController::class, 'index'])->name('kunjungan');
 Route::get('/tambahkunjungan', [KunjunganController::class, 'TambahKunjunganForm'])->name('tambahKunjungan');

@@ -29,7 +29,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('customer')}}">
                         <i class="mdi mdi-account menu-icon"></i>
-                        <span class="menu-title">User</span>
+                        <span class="menu-title">Ganti Password</span>
                     </a>
                 </li>
                 <li class="nav-item">
