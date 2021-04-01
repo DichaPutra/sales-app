@@ -41,13 +41,12 @@
                                             <div class="panel-body">
                                              <span class="mdi mdi-account menu-icon"> User Profile</span>
                                              <br><br>
-                                             <form action="{{url('updatetarget')}}" method="post">
-                                                 {{ csrf_field() }}
+                                             <form action="{{route('update.gantipassword')}}" method="post">
                                                 <div class="form-group">
-                                                    <input class="form-control" placeholder="Username" name="username" type="text" disabled>
+                                                    <input value="{{$user}}" class="form-control" placeholder="Username" name="username" type="text" disabled>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                                    <input class="form-control" placeholder="Password" name="password" type="password">
                                                 </div>
                                                 <input type="submit" class="btn btn-lg btn-primary btn-block" name="Ganti Password" value="Ganti Password"/>
                                             </form>
