@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\user;
+use App\Models\kunjungan;
 
 class CapaianController extends Controller {
 
@@ -21,11 +22,29 @@ class CapaianController extends Controller {
         });
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $userdb = user::where('tipe','=','sales')->get();
+        $userid = $request->id;
+//        var_dump($userid);
+        $userdb = user::where('tipe', '=', 'sales')->get();
 
-        return view('capaian',['user'=>$userdb]);
+        $namasales = null;
+        if ($userid != null)
+        {
+            $namasalesdb = user::where('id', '=', $userid)->pluck('name');
+            $namasales = $namasalesdb[0];
+        }
+
+
+        // select (id yang dipilih) , ( tanggal, bulan, tahun = now ) 
+        $datatabel = kunjungan::where('user_id', '=', $userid)
+                ->where('tanggal', '=', date('d'))
+                ->where('bulan', '=', date('m'))
+                ->where('tahun', '=', date('Y'))
+                ->get();
+
+//        var_dump($datatabel);
+        return view('capaian', ['user' => $userdb, 'datatabel' => $datatabel, 'namasales' => $namasales]);
     }
 
 }

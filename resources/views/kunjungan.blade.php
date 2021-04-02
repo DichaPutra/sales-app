@@ -39,6 +39,7 @@
                                     <div class="card border-1">
                                         <div class="card-body">
                                             <form>
+
                                                 <div class="card-title">
                                                     <h6>Target kunjungan anda hari ini : {{$target}}</h6><br>
                                                     <h6>Jumlah Kunjungan anda hari ini : {{$todaykunjungan}}</h6><br>

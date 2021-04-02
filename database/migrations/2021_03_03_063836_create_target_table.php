@@ -20,7 +20,7 @@ class CreateTargetTable extends Migration {
 
         DB::table('target')->insert(
                 [
-                    ['id' => '1', 'target' => '1']
+                    ['id' => '1', 'target' => '3']
                 ]
         );
     }

@@ -82,7 +82,7 @@ class KunjunganController extends Controller {
             $dbkunjungan->harga = $request->kisaranharga;
             $dbkunjungan->waktu_pembelian = $request->waktu;
             $dbkunjungan->lainlain = $request->lainlain;
-            $dbkunjungan->foto = $request->filefoto->store('public/fotokunjungan');
+            $dbkunjungan->foto = $request->filefoto->store('public/fotobukti');
             $dbkunjungan->status = 'tercapai'; // tercapai|tidak tercapai|ditolerir|tidak ditolerir
             $dbkunjungan->save();
 

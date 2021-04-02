@@ -49,6 +49,8 @@
                   </div>
                 </div>
               </form>
+              <h2>{{$namasales}}</h2>
+              
               <div class="table-responsive">
                 <table class="table table-striped" id="contact-detail" class="jw-table" cellspacing="0" width="100%">
                   <thead>
