@@ -47,4 +47,22 @@ class CapaianController extends Controller {
         return view('capaian', ['user' => $userdb, 'datatabel' => $datatabel, 'namasales' => $namasales]);
     }
 
+    public function disetujui($id)
+    {
+        $kunjungan = kunjungan::find($id);
+        $kunjungan->status = 'disetujui';
+        $kunjungan->save();
+        //dd($id);
+        return back();
+    }
+
+    public function tidakDisetujui($id)
+    {
+        $kunjungan = kunjungan::find($id);
+        $kunjungan->status = 'tidak disetujui';
+        $kunjungan->save();
+        //dd($id);
+        return back();
+    }
+
 }

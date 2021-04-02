@@ -45,6 +45,8 @@ Route::get('/detailcustomer/{id}', [CustomerController::class, 'detailCustomer']
 //CAPAIAN
 Route::get('/capaian', [CapaianController::class, 'index'])->name('capaian');
 Route::get('/capaianSelected', [CapaianController::class, 'capaianSelected'])->name('capaianSelected');
+Route::get('/disetujui/{id}', [CapaianController::class, 'disetujui'])->name('disetujui');
+Route::get('/tidakDisetujui/{id}', [CapaianController::class, 'tidakDisetujui'])->name('tidakDisetujui');
 //Route::get('/capaian', function () {
 //    return view('capaian');
 //});

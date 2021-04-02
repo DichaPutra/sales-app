@@ -63,31 +63,41 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="priority-5"><center>1</center></td>
-                                            <td scope="row" class="title">Tidak ada kunjungan</td>
-                                            <th scope="row">
-                                                <div class="toolbox">
-                                                    <center>
-                                                        <a href="#" style="color: green"><i class="mdi mdi-check"></i></a>
-                                                        &emsp;
-                                                        <a href="#" style="color: red"><i class="mdi mdi-close"></i></a>
-                                                    </center>
-                                                </div>
-                                            </th>
-                                            </tr>
                                             <?php $no = 1; ?>
                                             @foreach($datatabel as $dt)
                                             <tr>
-                                                <td class="priority-5"><center><?php echo "$no";
-                                            $no++;
-                                            ; ?></center></td>
-                                            <td scope="row" class="title">{{$dt->nama_perusahaan}}</td>
-                                            <th scope="row">
-                                                <div>
-                                                    <center><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalSaya{{$dt->id}}">Detail</button></center>
-                                                </div> 
-                                            </th>
+                                                <td class="priority-5"><center><?php echo "$no";$no++;?></center></td>
+                                            <td scope="row" class="title">
+                                                @if($dt->nama_perusahaan == 'Tidak Melakukan Kunjungan')
+                                                <div style="color: red;">{{$dt->nama_perusahaan}}</div>
+                                                @else
+                                                {{$dt->nama_perusahaan}}
+                                                @endif
+                                            </td>
+                                            <td scope="row">
+                                                @if($dt->status == 'tercapai')
+                                                    <div>
+                                                        <center><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalSaya{{$dt->id}}">Detail</button></center>
+                                                    </div> 
+                                                @elseif($dt->status == 'tidak tercapai')
+                                                    <div class="toolbox">
+                                                        <center>
+                                                            <a href="{{url('disetujui/'.$dt->id)}}" style="color: green"><i class="mdi mdi-check"></i></a>
+                                                            &emsp;
+                                                            <a href="{{url('tidakDisetujui/'.$dt->id)}}" style="color: red"><i class="mdi mdi-close"></i></a>
+                                                        </center>
+                                                    </div>
+                                                @elseif($dt->status == 'disetujui')
+                                                    <div>
+                                                        <center>Disetujui</center>
+                                                    </div> 
+                                                @elseif($dt->status == 'ditak disetujui')
+                                                    <div>
+                                                        <center>Tidak Disetujui</center>
+                                                    </div> 
+                                                @endif
+
+                                            </td>
                                             </tr>
 
                                             <!-- Modal Pop-Up -->
