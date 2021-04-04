@@ -25,9 +25,9 @@ class CapaianController extends Controller {
     public function index(Request $request)
     {
         $userid = $request->id;
-//        var_dump($userid);
         $userdb = user::where('tipe', '=', 'sales')->get();
 
+        //ambil nama sales
         $namasales = null;
         if ($userid != null)
         {

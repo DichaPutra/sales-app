@@ -52,7 +52,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <h2><?php echo $namasales; ?></h2>
+                                    <h2 class="text-center"><?php echo $namasales; ?></h2>
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="contact-detail" class="jw-table" cellspacing="0" width="100%">
                                             <thead>
@@ -69,7 +69,7 @@
                                                 <td class="priority-5"><center><?php echo "$no";$no++;?></center></td>
                                             <td scope="row" class="title">
                                                 @if($dt->nama_perusahaan == 'Tidak Melakukan Kunjungan')
-                                                <div style="color: red;">{{$dt->nama_perusahaan}}</div>
+                                                <div style="color: red;">{{$dt->nama_perusahaan}} | Alasan : {{$dt->alasan}}</div>
                                                 @else
                                                 {{$dt->nama_perusahaan}}
                                                 @endif

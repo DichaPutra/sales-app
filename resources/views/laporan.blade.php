@@ -36,110 +36,94 @@
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Nama Karyawan</h4>
-              <form class="forms-sample">
+              <form method="GET" action="{{route('laporan')}}"class="forms-sample">
+                  @csrf
                 <div class="container">
                   <div class="panel-body">
                     <div class="form-group">
-                      <select name="namakaryawan" class="selectpicker form-control" data-live-search="true">
-                        <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
+                        <select name="iduser" class="selectpicker form-control" data-live-search="true" onchange='this.form.submit()'>
+                            <option value="null">Pilih Sales ...</option>
+                            @foreach ($user as $user)
+                            <option value="{{$user->id}}" 
+                                    @if($userid == $user->id)
+                                        selected
+                                    @endif
+                                    >
+                                {{$user->name}}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                  </div>
+                </div>
+                <h4 class="card-title">Bulan</h4>
+                <div class="container">
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <select name="bulan" class="selectpicker form-control" data-live-search="false" onchange='this.form.submit()'>
+                        <option value="1" @if($bulan == 1 or $bulannow == 1) selected @endif >Januari</option>
+                        <option value="2" @if($bulan == 2 or $bulannow == 2) selected @endif >Februari</option>
+                        <option value="3" @if($bulan == 3 or $bulannow == 3) selected @endif >Maret</option>
+                        <option value="4" @if($bulan == 4 or $bulannow == 4) selected @endif >April</option>
+                        <option value="5" @if($bulan ==5 or $bulannow == 5) selected @endif >Mei</option>
+                        <option value="6" @if($bulan ==6 or $bulannow == 6) selected @endif >Juni</option>
+                        <option value="7" @if($bulan ==7 or $bulannow == 7) selected @endif >Juli</option>
+                        <option value="8" @if($bulan ==8 or $bulannow == 8) selected @endif >Agustus</option>
+                        <option value="9" @if($bulan ==9 or $bulannow == 9) selected @endif >September</option>
+                        <option value="10" @if($bulan ==10 or $bulannow == 10) selected @endif >Oktober</option>
+                        <option value="11" @if($bulan ==11 or $bulannow == 11) selected @endif >November</option>
+                        <option value="12" @if($bulan ==12 or $bulannow == 12) selected @endif >Desember</option>
                       </select>
                     </div>
                   </div>
                 </div>
+
               </form>
-              <h4 class="card-title">Bulan</h4>
-              <form class="forms-sample">
-                <div class="container">
-                  <div class="panel-body">
-                    <div class="form-group">
-                      <select name="namakaryawan" class="selectpicker form-control" data-live-search="true">
-                        <option>Januari</option>
-                        <option>Februari</option>
-                        <option>Maret</option>
-                        <option>April</option>
-                        <option>Mei</option>
-                        <option>Juni</option>
-                        <option>Juli</option>
-                        <option>Agustus</option>
-                        <option>September</option>
-                        <option>Oktober</option>
-                        <option>November</option>
-                        <option>Desember</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </form>
+              <h2 class="text-center"><?php echo $namasales; ?></h2>
               <div class="table-responsive">
                 <table class="table table-striped" id="contact-detail" class="jw-table" cellspacing="0" width="100%">
                   <thead>
                     <tr>
                       <th class="priority-5" width="10%" height="50%" align="center" valign="middle"><b><center>Tgl.</center><b></th>
-                        <th scope="col" class="column-primary"><center><i class="mdi mdi-checkbox-marked-circle-outline" style="font-size:25px;color:green"></i></center></th>
-                        <th scope="col" class="column-primary"><center><i class="mdi mdi-minus-circle-outline" style="font-size:25px;color:red"></i></center></th>
-                        <th scope="col" class="column-primary"><center><i class="mdi mdi-alert-outline" style="font-size:25px;color:#FFD700"></i></center></th>
-                        <th scope="col" class="column-primary"><center><i class="mdi mdi-close" style="font-size:25px;color:red"></i></center></th>
-                      </tr>
+                        <th scope="col" class="column-primary"><center>target<i class="mdi mdi-checkbox-marked-circle-outline" style="font-size:25px;color:green"></i></center></th>
+                        <th scope="col" class="column-primary"><center>input<i class="mdi mdi-minus-circle-outline" style="font-size:25px;color:red"></i></center></th>
+                        <th scope="col" class="column-primary"><center>tercapai<i class="mdi mdi-alert-outline" style="font-size:25px;color:#FFD700"></i></center></th>
+                        <th scope="col" class="column-primary"><center>tidak tercapai<i class="mdi mdi-close" style="font-size:25px;color:red"></i></center></th>
+                      <th scope="col" class="column-primary"><center>disetujui<i class="mdi mdi-close" style="font-size:25px;color:red"></i></center></th>
+                      <th scope="col" class="column-primary"><center>tidak disetujui<i class="mdi mdi-close" style="font-size:25px;color:red"></i></center></th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="priority-5"><center>1</center></td>
-                        <td scope="row" class="title"><center>10</center></td>
-                        <td scope="row" class="title"><center>8</center></td>
-                        <td scope="row" class="title"><center>5</center></td>
-                        <td scope="row" class="title"><center>1</center></td>
-                      </tr>
-                      <tr>
-                        <td class="priority-5"><center>2</center></td>
-                        <td scope="row" class="title"><center>10</center></td>
-                        <td scope="row" class="title"><center>8</center></td>
-                        <td scope="row" class="title"><center>5</center></td>
-                        <td scope="row" class="title"><center>1</center></td>
-                      </tr>
-                      <tr>
-                        <td class="priority-5"><center>3</center></td>
-                        <td scope="row" class="title"><center>10</center></td>
-                        <td scope="row" class="title"><center>8</center></td>
-                        <td scope="row" class="title"><center>5</center></td>
-                        <td scope="row" class="title"><center>1</center></td>
-                      </tr>
-                      <tr style="display: none;">
-                        <td class="priority-5"><center>4</center></td>
-                        <td scope="row" class="title"><center>10</center></td>
-                        <td scope="row" class="title"><center>8</center></td>
-                        <td scope="row" class="title"><center>5</center></td>
-                        <td scope="row" class="title"><center>1</center></td>
-                      </tr>
-                      <tr style="display: none;">
-                        <td class="priority-5"><center>5</center></td>
-                        <td scope="row" class="title"><center>10</center></td>
-                        <td scope="row" class="title"><center>8</center></td>
-                        <td scope="row" class="title"><center>5</center></td>
-                        <td scope="row" class="title"><center>1</center></td>
-                      </tr>
-                      <tr style="display: none;">
-                        <td class="priority-5"><center>6</center></td>
-                        <td scope="row" class="title"><center>10</center></td>
-                        <td scope="row" class="title"><center>8</center></td>
-                        <td scope="row" class="title"><center>5</center></td>
-                        <td scope="row" class="title"><center>1</center></td>
-                      </tr>
-                      <tr style="display: none;">
-                        <td class="priority-5"><center>7</center></td>
-                        <td scope="row" class="title"><center>10</center></td>
-                        <td scope="row" class="title"><center>8</center></td>
-                        <td scope="row" class="title"><center>5</center></td>
-                        <td scope="row" class="title"><center>1</center></td>
-                      </tr>
-                    </tr>
+                      
+                            <?php $tercapai=0; $tidaktercapai=0; $disetujui=0; $tidakdisetujui=0;?>
+                          @if ($kunjungan != null)
+                          @foreach($kunjungan as $kunj)
+                          <tr>
+                                <td class="priority-5"><center>{{$kunj->tanggal}}</center></td>
+                                <td scope="row" class="title"><center>{{$kunj->target}}</center></td>
+                                <td scope="row" class="title"><center>{{$kunj->input}}</center></td>
+                                <td scope="row" class="title"><center>{{$kunj->tercapai}}</center></td>
+                                <td scope="row" class="title"><center>{{$kunj->tidak_tercapai}}</center></td>
+                                <td scope="row" class="title"><center>{{$kunj->disetujui}}</center></td>
+                                <td scope="row" class="title"><center>{{$kunj->tidak_disetujui}}</center></td>
+                                <?php 
+                                $tercapai+=$kunj->tercapai;
+                                $tidaktercapai+=$kunj->tidak_tercapai;
+                                $disetujui+=$kunj->disetujui;
+                                $tidakdisetujui+=$kunj->tidak_disetujui;
+                                ?>
+                        </tr>
+                          @endforeach
+                          @endif
+                      
                     <tr>
                       <td class="priority-5"><center><b>TOTAL</b></center></td>
-                      <td scope="row" class="title"><center><b>70</b></center></td>
-                      <td scope="row" class="title"><center><b>56</b></center></td>
-                      <td scope="row" class="title"><center><b>35</b></center></td>
-                      <td scope="row" class="title"><center><b>7</b></center></td>
+                      <td scope="row" class="title"><center><b></b></center></td>
+                      <td scope="row" class="title"><center><b></b></center></td>
+                      <td scope="row" class="title"><center><b>{{$tercapai}}</b></center></td>
+                      <td scope="row" class="title"><center><b>{{$tidaktercapai}}</b></center></td>
+                      <td scope="row" class="title"><center><b>{{$disetujui}}</b></center></td>
+                      <td scope="row" class="title"><center><b>{{$tidakdisetujui}}</b></center></td>
                     </tr>
                   </tbody>
                 </div>

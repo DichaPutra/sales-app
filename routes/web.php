@@ -8,6 +8,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\KunjunganController;
 use App\Http\Controllers\CapaianController;
 use App\Http\Controllers\GantiPasswordController;
+use App\Http\Controllers\LaporanController;
 
 /*
   |--------------------------------------------------------------------------
@@ -47,9 +48,6 @@ Route::get('/capaian', [CapaianController::class, 'index'])->name('capaian');
 Route::get('/capaianSelected', [CapaianController::class, 'capaianSelected'])->name('capaianSelected');
 Route::get('/disetujui/{id}', [CapaianController::class, 'disetujui'])->name('disetujui');
 Route::get('/tidakDisetujui/{id}', [CapaianController::class, 'tidakDisetujui'])->name('tidakDisetujui');
-//Route::get('/capaian', function () {
-//    return view('capaian');
-//});
 
 
 // USER/GANTI PASSWORD
@@ -59,9 +57,12 @@ Route::post('/gantipassword/', [GantiPasswordController::class, 'gantiPassword']
 //     return view('user');
 // });
 
-Route::get('/laporan', function () {
-    return view('laporan');
-});
+
+//LAPORAN
+Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
+//Route::get('/laporan', function () {
+//    return view('laporan');
+//});
 
 Route::get('/coba', function () {
     return view('coba');

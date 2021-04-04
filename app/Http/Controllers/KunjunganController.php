@@ -99,6 +99,7 @@ class KunjunganController extends Controller {
             $dbkunjungan->bulan = date('m');
             $dbkunjungan->tahun = date('Y');
             $dbkunjungan->status = 'tidak tercapai'; // tercapai|tidak tercapai|ditolerir|tidak ditolerir
+            $dbkunjungan->alasan = $request->alasan;
             $dbkunjungan->save();
 //            $alasan = $request->alasan;
             return redirect()->route('kunjungan');
