@@ -26,7 +26,13 @@
     <body>
         <div class="container-scroller">
             <!-- partial:partials/_horizontal-navbar.html -->
+            @if (session('tipe')=='atasan')
             @include('includes.headeratasan')
+            @elseif (session('tipe')=='admin')
+            @include('includes.headeradmin')
+            @else
+            @include('includes.headersales')
+            @endif
             <!-- partial -->
             <div class="container-fluid page-body-wrapper">
                 <div class="main-panel">
@@ -63,10 +69,11 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <?php $no = 1; ?>
-                                            @foreach($datatabel as $dt)
-                                            <tr>
-                                                <td class="priority-5"><center><?php echo "$no";$no++;?></center></td>
+                                                <?php $no = 1; ?>
+                                                @foreach($datatabel as $dt)
+                                                <tr>
+                                                    <td class="priority-5"><center><?php echo "$no";
+                                                $no++; ?></center></td>
                                             <td scope="row" class="title">
                                                 @if($dt->nama_perusahaan == 'Tidak Melakukan Kunjungan')
                                                 <div style="color: red;">{{$dt->nama_perusahaan}} | Alasan : {{$dt->alasan}}</div>
@@ -76,25 +83,25 @@
                                             </td>
                                             <td scope="row">
                                                 @if($dt->status == 'tercapai')
-                                                    <div>
-                                                        <center><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalSaya{{$dt->id}}">Detail</button></center>
-                                                    </div> 
+                                                <div>
+                                                    <center><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalSaya{{$dt->id}}">Detail</button></center>
+                                                </div> 
                                                 @elseif($dt->status == 'tidak tercapai')
-                                                    <div class="toolbox">
-                                                        <center>
-                                                            <a href="{{url('disetujui/'.$dt->id)}}" style="color: green"><i class="mdi mdi-check"></i></a>
-                                                            &emsp;
-                                                            <a href="{{url('tidakDisetujui/'.$dt->id)}}" style="color: red"><i class="mdi mdi-close"></i></a>
-                                                        </center>
-                                                    </div>
+                                                <div class="toolbox">
+                                                    <center>
+                                                        <a href="{{url('disetujui/'.$dt->id)}}" style="color: green"><i class="mdi mdi-check"></i></a>
+                                                        &emsp;
+                                                        <a href="{{url('tidakDisetujui/'.$dt->id)}}" style="color: red"><i class="mdi mdi-close"></i></a>
+                                                    </center>
+                                                </div>
                                                 @elseif($dt->status == 'disetujui')
-                                                    <div>
-                                                        <center>Disetujui</center>
-                                                    </div> 
+                                                <div>
+                                                    <center>Disetujui</center>
+                                                </div> 
                                                 @elseif($dt->status == 'ditak disetujui')
-                                                    <div>
-                                                        <center>Tidak Disetujui</center>
-                                                    </div> 
+                                                <div>
+                                                    <center>Tidak Disetujui</center>
+                                                </div> 
                                                 @endif
 
                                             </td>
@@ -137,7 +144,7 @@
                                                                     <textarea type="text" class="form-control" id="lainlain" readonly>{{$dt->lainlain}}</textarea>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <?php $imageurl = str_replace('public/', '', $dt->foto)?>
+<?php $imageurl = str_replace('public/', '', $dt->foto) ?>
                                                                     <label for="foto">Foto saat kunjungan</label><br>
                                                                     <img src="{{url('storage/'.$imageurl)}}" alt="image" style="width:100%;">
                                                                     <!--<img id="foto" src="../assets/images/salesproject.jpg" alt="image" style="width:100%;" />-->

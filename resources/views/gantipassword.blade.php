@@ -24,7 +24,14 @@
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_horizontal-navbar.html -->
-        @include('includes.headersales')
+                    <!-- partial:partials/_horizontal-navbar.html -->
+            @if (session('tipe')=='atasan')
+            @include('includes.headeratasan')
+            @elseif (session('tipe')=='admin')
+            @include('includes.headeradmin')
+            @else
+            @include('includes.headersales')
+            @endif
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <div class="main-panel">
@@ -41,16 +48,25 @@
                                             <div class="panel-body">
                                              <span class="mdi mdi-account menu-icon"> User Profile</span>
                                              <br><br>
+                                             @if (\Session::has('success'))
+                                                <div class="alert alert-success">
+                                                    <ul>
+                                                        <li>{!! \Session::get('success') !!}</li>
+                                                    </ul>
+                                                </div><br>
+                                            @endif
                                              <form action="{{route('update.gantipassword')}}" method="post">
                                                 {{ csrf_field() }}
+                                                <input type="hidden" value="{{$userid}}" name="userid">
                                                 <div class="form-group">
                                                     <input value="{{$user}}" class="form-control" placeholder="Username" name="username" type="text" disabled>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control" placeholder="Password" name="password" type="password">
+                                                    <input name="newpassword" class="form-control" placeholder="Password" name="password" type="password">
                                                 </div>
                                                 <input type="submit" class="btn btn-lg btn-primary btn-block" name="Ganti Password" value="Ganti Password"/>
                                             </form>
+
                                         </div>
                                     </div>
                                 </div>

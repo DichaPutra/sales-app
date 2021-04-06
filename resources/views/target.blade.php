@@ -24,7 +24,13 @@
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_horizontal-navbar.html -->
-        @include('includes.headeratasan')
+                    @if (session('tipe')=='atasan')
+            @include('includes.headeratasan')
+            @elseif (session('tipe')=='admin')
+            @include('includes.headeradmin')
+            @else
+            @include('includes.headersales')
+            @endif
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <div class="main-panel">
