@@ -21,19 +21,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('kunjungan')}}">
+                    <a class="nav-link" href="{{url('kunjunganAdmin')}}">
                         <i class="mdi mdi-playlist-check menu-icon"></i>
                         <span class="menu-title">Kunjungan</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('customer')}}">
+                    <a class="nav-link" href="{{url('customerAdmin')}}">
                         <i class="mdi mdi-account-multiple menu-icon"></i>
                         <span class="menu-title">Customer</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('user')}}">
+                    <a class="nav-link" href="{{url('userAdmin')}}">
                         <i class="mdi mdi-account menu-icon"></i>
                         <span class="menu-title">User</span>
                     </a>

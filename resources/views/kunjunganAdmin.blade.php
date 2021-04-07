@@ -142,7 +142,7 @@
                                                                 </div>
                                                                 <!-- body modal -->
                                                                 <div class="modal-body">
-                                                                  <select name="nama_sales" class="form-control">
+                                                                  <select name="status_sales" class="form-control">
                                                                     <option>Tidak Tercapai</option>
                                                                     <option>Disetujui</option>
                                                                     <option>Tidak Disetujui</option>
