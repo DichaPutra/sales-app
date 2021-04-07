@@ -24,13 +24,7 @@
     <body>
         <div class="container-scroller">
             <!-- partial:partials/_horizontal-navbar.html -->
-            @if (session('tipe')=='atasan')
-            @include('includes.headeratasan')
-            @elseif (session('tipe')=='admin')
             @include('includes.headeradmin')
-            @else
-            @include('includes.headersales')
-            @endif
             <!-- partial -->
             <div class="container-fluid page-body-wrapper">
                 <div class="main-panel">
@@ -40,12 +34,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div>
-                                    <button type="kembali" class="btn-primary"><a class="text-white" href="customer"><i class="mdi mdi-arrow-left-bold"></i></a></button>
+                                    <button type="kembali" class="btn-primary"><a class="text-white" href="customerAdmin"><i class="mdi mdi-arrow-left-bold"></i></a></button>
                                 </div>
                                 <br>
                                 <h4 class="card-title"></h4>
-                                <form action="{{url('insertcustomer')}}" class="forms-sample" method="post">
-                                    {{ csrf_field() }}
+                                <form class="forms-sample" method="post">
                                     <div class="form-group">
                                         <label>Nama Perusahaan</label>
                                         <input name="nama_perusahaan" type="text" class="form-control" id="namaperusahaan" placeholder="Nama Perusahaan" />
@@ -92,9 +85,7 @@
                                                 <input name="twitter" type="text" class="form-control" placeholder="Twitter" />
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary mr-2"> Submit </button>
-                                        <button class="btn btn-light">Clear</button>
-
+                                        <button type="submit" class="btn btn-primary mr-2"> Simpan </button>
                                     </div>
                                 </form>
                             </div>

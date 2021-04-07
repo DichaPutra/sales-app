@@ -75,13 +75,16 @@ Route::get('/kunjunganAdmin', function () {
 });
 
 // CUSTOMER ADMIN
-Route::get('/kunjunganAdmin', function () {
-    return view('kunjunganAdmin');
+Route::get('/customerAdmin', function () {
+    return view('customerAdmin');
+});
+Route::get('/editcustomer', function () {
+    return view('editcustomer');
 });
 
 // USER ADMIN
-Route::get('/kunjunganAdmin', function () {
-    return view('kunjunganAdmin');
+Route::get('/userAdmin', function () {
+    return view('userAdmin');
 });
 
 Route::get('/coba', function () {

@@ -217,7 +217,7 @@
                                                         <!-- footer modal -->
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-danger pull-right mb-4">Ya</button>
-                                                            <button type="button" class="btn btn-primary pull-right mb-4">Tidak</button>
+                                                            <button type="button" class="btn btn-primary pull-right mb-4" data-dismiss="modal">Tidak</button>
                                                         </div>
                                                     </div>
                                                 </div>
