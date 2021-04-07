@@ -207,17 +207,17 @@
                                                     <div class="modal-content">
                                                         <!-- heading modal -->
                                                         <div class="modal-header">
-                                                            <h4 class="modal-title">Hapus Kunjungan</h4>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                                        </div>
+                                                                <h4 class="modal-title"></h4>
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            </div>
                                                         <!-- body modal -->
                                                         <div class="modal-body">
-                                                            <p>bagian body modal.</p>
+                                                            <p>Apakah anda yakin menghapus kunjungan ini ?</p>
                                                         </div>
                                                         <!-- footer modal -->
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup Modal</button>
+                                                            <button type="button" class="btn btn-danger pull-right mb-4">Ya</button>
+                                                            <button type="button" class="btn btn-primary pull-right mb-4">Tidak</button>
                                                         </div>
                                                     </div>
                                                 </div>
