@@ -27,20 +27,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('capaian')}}">
-                        <i class="mdi mdi-chart-bar menu-icon"></i>
-                        <span class="menu-title">Capaian</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('laporan')}}">
-                        <i class="mdi mdi-table-large menu-icon"></i>
-                        <span class="menu-title">Laporan</span>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{url('customer')}}">
-                        <i class="mdi mdi-account-box-multiple menu-icon"></i>
+                        <i class="mdi mdi-account-multiple menu-icon"></i>
                         <span class="menu-title">Customer</span>
                     </a>
                 </li>

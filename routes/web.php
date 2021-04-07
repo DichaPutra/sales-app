@@ -64,12 +64,26 @@ Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
 //    return view('laporan');
 //});
 
-Route::get('/coba', function () {
-    return view('coba');
-});
-
 //KUNJUNGAN
 Route::get('/kunjungan', [KunjunganController::class, 'index'])->name('kunjungan');
 Route::get('/tambahkunjungan', [KunjunganController::class, 'TambahKunjunganForm'])->name('tambahKunjungan');
 Route::post('/insertkunjungan', [KunjunganController::class, 'insertKunjungan'])->name('insertKunjungan');
 
+// KUNJUNGAN ADMIN
+Route::get('/kunjunganAdmin', function () {
+    return view('kunjunganAdmin');
+});
+
+// CUSTOMER ADMIN
+Route::get('/kunjunganAdmin', function () {
+    return view('kunjunganAdmin');
+});
+
+// USER ADMIN
+Route::get('/kunjunganAdmin', function () {
+    return view('kunjunganAdmin');
+});
+
+Route::get('/coba', function () {
+    return view('coba');
+});

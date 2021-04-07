@@ -129,6 +129,7 @@ $(document).ready(function () {
             "zeroRecords": "Maaf - Data tidak ada",
             "info": "Halaman _PAGE_ dari _PAGES_",
             "infoEmpty": "Tidak ada data",
+            "previous": "Prev",
             "infoFiltered": "(pencarian dari _MAX_ data)",
 
             // buttons: {

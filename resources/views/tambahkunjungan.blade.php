@@ -89,7 +89,7 @@
                                                 <button class="file-upload-browse btn btn-primary" type="button"> Upload </button>
                                             </span>
                                         </div>-->
-                                        <br><br<br><br>
+                                        <br><br><br><br>
                                         <input type="submit" class="btn btn-primary mr-2" value="Submit">
                                         <button class="btn btn-light">Clear</button>
                                     </div>
