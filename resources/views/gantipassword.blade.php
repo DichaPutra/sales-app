@@ -59,14 +59,13 @@
                                                 {{ csrf_field() }}
                                                 <input type="hidden" value="{{$userid}}" name="userid">
                                                 <div class="form-group">
-                                                    <input value="{{$user}}" class="form-control" placeholder="Username" name="username" type="text" disabled>
+                                                    Username : <input value="{{$user}}" class="form-control" placeholder="Username" name="username" type="text" disabled>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input name="newpassword" class="form-control" placeholder="Password" name="password" type="password">
+                                                    Password : <input name="newpassword" class="form-control" placeholder="Password" name="password" type="password">
                                                 </div>
                                                 <input type="submit" class="btn btn-lg btn-primary btn-block" name="Ganti Password" value="Ganti Password"/>
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>
