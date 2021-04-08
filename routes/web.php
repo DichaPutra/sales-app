@@ -9,7 +9,8 @@ use App\Http\Controllers\KunjunganController;
 use App\Http\Controllers\CapaianController;
 use App\Http\Controllers\GantiPasswordController;
 use App\Http\Controllers\LaporanController;
-
+use App\Http\Controllers\TargetAdminController;
+use App\Http\Controllers\KunjunganAdminController;
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -36,6 +37,8 @@ Route::get('/dologout', [LogoutController::class, 'index'])->name('dologout');
 //TARGET
 Route::get('/target', [TargetController::class, 'index'])->name('target');
 Route::post('/updatetarget', [TargetController::class, 'updateTarget'])->name('updatetarget');
+Route::get('/targetAdmin', [TargetAdminController::class, 'index'])->name('targetAdmin');
+
 
 //CUSTOMER
 Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
@@ -70,9 +73,7 @@ Route::get('/tambahkunjungan', [KunjunganController::class, 'TambahKunjunganForm
 Route::post('/insertkunjungan', [KunjunganController::class, 'insertKunjungan'])->name('insertKunjungan');
 
 // KUNJUNGAN ADMIN
-Route::get('/kunjunganAdmin', function () {
-    return view('kunjunganAdmin');
-});
+Route::get('/kunjunganAdmin', [KunjunganAdminController::class, 'index'])->name('kunjunganAdmin');
 
 // CUSTOMER ADMIN
 Route::get('/customerAdmin', function () {

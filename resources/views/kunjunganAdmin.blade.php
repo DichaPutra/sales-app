@@ -37,15 +37,29 @@
                                     <div class="col-md-12">
                                         <div class="card border-1">
                                             <div class="card-body">
+                                                
+                                                <!-- form 
+                                                ===========================================================
+                                                -->
+                               <form method="GET" action="{{route('kunjunganAdmin')}}"class="forms-sample">
+                                @csrf
                                                 <div class="card-title">
+                                                    <br>
                                                     <h4 class="card-title">Nama Sales</h4>
                                                     <div class="container">
                                                       <div class="panel-body">
                                                         <div class="form-group">
-                                                          <select name="nama_sales" class="form-control">
-                                                            <option>Nicholas Saputera</option>
-                                                            <option>Dian Sastro</option>
-                                                            <option>Reza Rahardian</option>
+                                                        <select name="iduser" class="selectpicker form-control" data-live-search="true" onchange='this.form.submit()'>
+                                                            <option value="null">Pilih Sales ...</option>
+                                                            @foreach ($user as $user)
+                                                            <option value="{{$user->id}}" 
+                                                                    @if($userid == $user->id)
+                                                                        selected
+                                                                    @endif
+                                                                    >
+                                                                {{$user->name}}
+                                                            </option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -54,52 +68,74 @@
                                             <div class="container">
                                               <div class="panel-body">
                                                 <div class="form-group">
-                                                  <select name="bulan" class="form-control">
-                                                    <option value="1">Januari</option>
-                                                    <option value="2">Februari</option>
-                                                    <option value="3">Maret</option>
-                                                    <option value="4">April</option>
-                                                    <option value="5">Mei</option>
-                                                    <option value="6">Juni</option>
-                                                    <option value="7">Juli</option>
-                                                    <option value="8">Agustus</option>
-                                                    <option value="9">September</option>
-                                                    <option value="10">Oktober</option>
-                                                    <option value="11">November</option>
-                                                    <option value="12">Desember</option>
-                                                </select>
+                                                    <select name="bulan" class="selectpicker form-control" data-live-search="false" onchange='this.form.submit()'>
+                                                    <option value="1" @if($bulan == 1 or $bulannow == 1) selected @endif >Januari</option>
+                                                    <option value="2" @if($bulan == 2 or $bulannow == 2) selected @endif >Februari</option>
+                                                    <option value="3" @if($bulan == 3 or $bulannow == 3) selected @endif >Maret</option>
+                                                    <option value="4" @if($bulan == 4 or $bulannow == 4) selected @endif >April</option>
+                                                    <option value="5" @if($bulan ==5 or $bulannow == 5) selected @endif >Mei</option>
+                                                    <option value="6" @if($bulan ==6 or $bulannow == 6) selected @endif >Juni</option>
+                                                    <option value="7" @if($bulan ==7 or $bulannow == 7) selected @endif >Juli</option>
+                                                    <option value="8" @if($bulan ==8 or $bulannow == 8) selected @endif >Agustus</option>
+                                                    <option value="9" @if($bulan ==9 or $bulannow == 9) selected @endif >September</option>
+                                                    <option value="10" @if($bulan ==10 or $bulannow == 10) selected @endif >Oktober</option>
+                                                    <option value="11" @if($bulan ==11 or $bulannow == 11) selected @endif >November</option>
+                                                    <option value="12" @if($bulan ==12 or $bulannow == 12) selected @endif >Desember</option>
+                                                  </select>
                                             </div>
                                         </div>
                                     </div>
-
-                                </form>
                             </div>
-                        </form>
+                               </form>
+                        <h2 class="text-center"><?php echo $namasales; ?></h2>
                         <div class="table-responsive">
                             <table class="table table-striped" id="contact-detail" class="jw-table" cellspacing="0" width="100%">
                                 <thead></thead>
                                 <tbody>
                                     <tr>
                                         <th class="priority-5" width="10%"><span><b><center>No.</center><b></span></th>
-                                            <th scope="row"><center><b>Keterangan</b></center></th>
-                                            <th scope="row"><center><b>Status</b></center></th>
-                                            <th scope="row"><center><b>Action</b></center></th>
-                                        </tr>
+                                        <th scope="row"><center><b>Keterangan</b></center></th>
+                                        <th scope="row"><center><b>Status</b></center></th>
+                                        <th scope="row"><center><b>Action</b></center></th>
+                                    </tr>
+
+                          @if ($kunjungan != null)
+                          @foreach($kunjungan as $kunj)
+                            <tr>
+                                  <td class="priority-5"><center>{{$kunj->tanggal}}</center></td>
+                                  <td scope="row" class="title">{{$kunj->nama_perusahaan}}</td>
+                                  <td scope="row" class="title"><center>{{$kunj->status}}</center></td>
+                                  <td scope="row" class="title">
+                                                <div class="toolbox">
+                                                    <center>
+                                                        <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#editModal"></i></a>
+                                                        &emsp;
+                                                        <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
+                                                    </center>
+                                                </div>
+                                  </td>
+                          </tr>
+                          @endforeach
+                          @endif
+                                        
                                         <tr>
                                             <td class="priority-5"><center>1</center></td>
-                                            <td scope="row" class="title">Tidak Melakukan Kunjungan</center></td>
+                                            <td scope="row" class="title">Tidak Melakukan Kunjungan</td>
                                             <td>
                                                 <center>
                                                     <div class="box-merah"></div>
-                                                </center></td>
-                                                <td><div class="toolbox">
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <div class="toolbox">
                                                     <center>
                                                         <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#rubahStatusModal"></i></a>
                                                         &emsp;
                                                         <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
                                                     </center>
-                                                </div></td>
-                                            </tr>
+                                                </div>
+                                            </td>
+                                        </tr>
                                             <tr>
                                                 <td class="priority-5"><center>2</center></td>
                                                 <td scope="row" class="title">PT. Indofood</center></td>
@@ -107,13 +143,15 @@
                                                     <center>
                                                         <div class="box-hijau"></div>
                                                     </center></td>
-                                                    <td><div class="toolbox">
-                                                        <center>
-                                                            <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#editModal"></i></a>
-                                                            &emsp;
-                                                            <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
-                                                        </center>
-                                                    </div></td>
+                                                    <td>
+                                                        <div class="toolbox">
+                                                            <center>
+                                                                <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#editModal"></i></a>
+                                                                &emsp;
+                                                                <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
+                                                            </center>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="priority-5"><center>3</center></td>

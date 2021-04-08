@@ -15,7 +15,7 @@
         <div class="container">
             <ul class="nav page-navigation">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('target')}}">
+                    <a class="nav-link" href="{{url('targetAdmin')}}">
                         <i class="mdi mdi-target menu-icon"></i>
                         <span class="menu-title">Target Kunjungan</span>
                     </a>

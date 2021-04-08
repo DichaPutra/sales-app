@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\target;
 
-class TargetController extends Controller {
+class TargetAdminController extends Controller {
 
     public function __construct()
     {
@@ -14,7 +14,7 @@ class TargetController extends Controller {
         $this->middleware(function ($request, $next) {
             //cek session jiga blm login -> kembalikan ke halaman login
             $username = session('username');
-            if ((session('username') == null) && session('tipe') != 'atasan')
+            if ((session('username') == null) && session('tipe') != 'admin')
             {
                 return redirect()->route('relogin');
             }
@@ -39,27 +39,6 @@ class TargetController extends Controller {
         // return view('target')->with($data);
 
         return view('target', ['target' => $target]);
-    }
-
-    public function updateTarget(Request $request)
-    {
-        // get data
-        $request->all();
-        $target = $request->target;
-
-        //update db
-        $db = target::find(1);
-        $db->target = $target;
-        $db->save();
-
-        if (session('tipe') == 'admin')
-        {
-            return redirect()->route('targetAdmin');
-        }
-        else
-        {
-            return redirect()->route('target');
-        }
     }
 
 }

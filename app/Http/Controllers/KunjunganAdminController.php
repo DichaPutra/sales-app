@@ -7,7 +7,7 @@ use App\Models\user;
 use App\Models\kunjungan;
 use Illuminate\Support\Facades\DB;
 
-class LaporanController extends Controller {
+class KunjunganAdminController extends Controller {
 
     public function __construct()
     {
@@ -15,7 +15,7 @@ class LaporanController extends Controller {
         $this->middleware(function ($request, $next) {
             //cek session jiga blm login -> kembalikan ke halaman login
             $username = session('username');
-            if ((session('username') == null) && session('tipe') != 'atasan')
+            if ((session('username') == null) && session('tipe') != 'admin')
             {
                 return redirect()->route('relogin');
             }
@@ -39,26 +39,24 @@ class LaporanController extends Controller {
         //ambil nama sales
         $namasales = null;
         $kunjungan = null;
+        $namasalesdb = null;
         if ($userid != null)
         {
-            //get data kunjungan
-            $tahun = date('Y');
-            $kunjungan = DB::select("SELECT tanggal, AVG(target) as target, 
-                                COUNT(tanggal) as input ,
-                                sum( case when status = 'tercapai' then 1 else 0 end ) as `tercapai` ,
-                                sum( case when status = 'tidak tercapai' then 1 else 0 end ) as `tidak_tercapai` ,
-                                sum( case when status = 'disetujui' then 1 else 0 end ) as `disetujui` ,
-                                sum( case when status = 'tidak disetujui' then 1 else 0 end ) as `tidak_disetujui` 
-                                FROM `kunjungan` WHERE `user_id` = $userid AND `bulan` = $bulan AND `tahun` = $tahun
-                                GROUP BY tanggal");
 
+            $tahun = date('Y');
+            //get data kunjungan
+            $kunjungan = kunjungan::where('user_id',$userid)->where('bulan', $bulan)->where('tahun',$tahun)->get();
+                    
+                    //DB::select("SELECT * FROM `kunjungan` WHERE `user_id` = $userid AND `bulan` = $bulan AND `tahun` = $tahun");
+            
             $namasalesdb = user::where('id', '=', $userid)->pluck('name');
             $namasales = $namasalesdb[0];
             //dd($kunjungan);
         }
 
 
-        return view('laporan', [
+        echo "$namasales| $userid | $bulan | now : $bulannow |";
+        return view('kunjunganAdmin', [
             'user' => $userdb,
             'userid' => $userid,
             'bulan' => $bulan,
