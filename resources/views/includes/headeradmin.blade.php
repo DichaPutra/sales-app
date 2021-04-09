@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('customerAdmin')}}">
+                    <a class="nav-link" href="{{url('customer')}}">
                         <i class="mdi mdi-account-multiple menu-icon"></i>
                         <span class="menu-title">Customer</span>
                     </a>

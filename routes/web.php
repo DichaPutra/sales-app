@@ -45,6 +45,9 @@ Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 Route::get('/tambahcustomer', [CustomerController::class, 'tambahCustomer'])->name('tambahcustomer');
 Route::post('/insertcustomer', [CustomerController::class, 'insertCustomer'])->name('insertcustomer');
 Route::get('/detailcustomer/{id}', [CustomerController::class, 'detailCustomer'])->name('detailcustomer');
+Route::get('/deletecustomer/{id}', [CustomerController::class, 'deleteCustomer'])->name('deletecustomer');
+Route::get('/editcustomer/{id}', [CustomerController::class, 'editCustomerForm'])->name('editcustomer');
+Route::post('/updatecustomer', [CustomerController::class, 'updateCustomer'])->name('updatecustomer');
 
 //CAPAIAN
 Route::get('/capaian', [CapaianController::class, 'index'])->name('capaian');
@@ -78,7 +81,7 @@ Route::get('/kunjunganAdmin', [KunjunganAdminController::class, 'index'])->name(
 // CUSTOMER ADMIN
 Route::get('/customerAdmin', function () {
     return view('customerAdmin');
-});
+})->name('customerAdmin');
 Route::get('/editcustomer', function () {
     return view('editcustomer');
 });

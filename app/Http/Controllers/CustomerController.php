@@ -12,7 +12,7 @@ class CustomerController extends Controller {
         $this->middleware(function ($request, $next) {
             //cek session jiga blm login -> kembalikan ke halaman login
             $username = session('username');
-            if ((session('username') == null) && session('tipe') != 'atasan') {
+            if ((session('username') == null)) {
                 return redirect()->route('relogin');
             }
             return $next($request);
@@ -38,12 +38,41 @@ class CustomerController extends Controller {
         return view('tambahcustomer');
     }
 
+    public function editCustomerForm($id) {
+        // echo "edit custmer dangan id = $id";
+        $datacustomer = customer::where('id', $id)->first();
+        return view('editcustomer', ['datacustomer' => $datacustomer]);
+    }
+
     public function insertCustomer(Request $request) {
         // get data
         $request->all();
 
         // insert data DB
         $customer = new customer;
+        $customer->nama_perusahaan = $request->nama_perusahaan;
+        $customer->alamat = $request->alamat_perusahaan;
+        $customer->contact_no_perusahaan = $request->kontak_perusahaan;
+        $customer->nama_pic = $request->nama_pic;
+        $customer->email = $request->email_pic;
+        $customer->contact_no_pic = $request->kontak_pic;
+        $customer->twitter = $request->twitter;
+        $customer->fb = $request->fb;
+        $customer->wa = $request->wa;
+        $customer->save();
+
+        // redirect
+        return redirect()->route('customer');
+    }
+
+    public function updateCustomer(Request $request) {
+        // get data
+        $request->all();
+        
+        //dd($request->all());
+
+        //update data DB
+        $customer = customer::find($request->idcustomer);
         $customer->nama_perusahaan = $request->nama_perusahaan;
         $customer->alamat = $request->alamat_perusahaan;
         $customer->contact_no_perusahaan = $request->kontak_perusahaan;
@@ -79,6 +108,13 @@ class CustomerController extends Controller {
         );
 
         return view('detailcustomer')->with($data);
+    }
+
+    public function deleteCustomer($id) {
+        customer::where('id', $id)->delete();
+        //echo "delete customer dengan id = $id";
+        // redirect
+        return redirect()->route('customer');
     }
 
 }

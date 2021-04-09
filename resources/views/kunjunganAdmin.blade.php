@@ -93,7 +93,7 @@
                                 <thead></thead>
                                 <tbody>
                                     <tr>
-                                        <th class="priority-5" width="10%"><span><b><center>No.</center><b></span></th>
+                                        <th class="priority-5" width="10%"><span><b><center>Tgl.</center><b></span></th>
                                         <th scope="row"><center><b>Keterangan</b></center></th>
                                         <th scope="row"><center><b>Status</b></center></th>
                                         <th scope="row"><center><b>Action</b></center></th>
@@ -104,19 +104,34 @@
                             <tr>
                                   <td class="priority-5"><center>{{$kunj->tanggal}}</center></td>
                                   <td scope="row" class="title">{{$kunj->nama_perusahaan}}</td>
-                                  <td scope="row" class="title"><center>{{$kunj->status}}</center></td>
+                                  <td scope="row" class="title">
+                                      @if ($kunj->status == 'tercapai')
+                                        <center>
+                                            <div class="box-hijau"></div>
+                                        </center>
+                                        @elseif ($kunj->status == 'disetujui')
+                                        <center>
+                                            <div class="box-kuning"></div>
+                                        </center>
+                                        @else
+                                        <center>
+                                            <div class="box-merah"></div>
+                                        </center>
+                                      @endif
+                                  </td>
                                   <td scope="row" class="title">
                                                 <div class="toolbox">
                                                     <center>
+                                                        <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#rubahStatusModal"></i></a>
                                                         <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#editModal"></i></a>
                                                         &emsp;
                                                         <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
                                                     </center>
                                                 </div>
-                                  </td>
-                          </tr>
-                          @endforeach
-                          @endif
+                                         </td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
                                         
                                         <tr>
                                             <td class="priority-5"><center>1</center></td>
@@ -142,7 +157,8 @@
                                                 <td>
                                                     <center>
                                                         <div class="box-hijau"></div>
-                                                    </center></td>
+                                                    </center>
+                                                </td>
                                                     <td>
                                                         <div class="toolbox">
                                                             <center>

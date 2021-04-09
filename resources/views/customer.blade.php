@@ -59,9 +59,9 @@
                                             <tr>
                                                 <th><center>No.</center></th>
                                         <th><center>Nama Perusahaan</center></th>
-                                    <!-- <th><center>Alamat</center></th>
-                                        <th><center>Contact Person</center></th> -->
-                                        <!-- <th><center>Action</center></th> -->
+                                        @if(Session::get('tipe') == 'admin')
+                                        <th><center>Action</center></th> 
+                                        @endif
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -69,7 +69,16 @@
                                             @foreach($customer as $customer)
                                             <tr>
                                                 <td><center>{{$no++}}</center></td>
-                                        <td><a href="detailcustomer/{{$customer->id}}">{{ $customer->nama_perusahaan }}</a></td>
+                                                <td><a href="detailcustomer/{{$customer->id}}">{{ $customer->nama_perusahaan }}</a></td>
+                                                @if(Session::get('tipe') == 'admin')
+                                                <td>
+                                                    <div class="toolbox">
+                                                        <center><a href="editcustomer/{{$customer->id}}" style="color: blue;font-size:20px"><i class="mdi mdi-pencil"></i></a>
+                                                        &emsp;&emsp;
+                                                        <a href="deletecustomer/{{$customer->id}}"style="color: #cc0000;font-size:20px;" onClick="confirm('Apakah anda yakin menghapus customer ini ?')" ><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a></center>
+                                                    </div>
+                                                </td>
+                                                @endif
                                         </tr>
                                         @endforeach
                                         </tbody>

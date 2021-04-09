@@ -55,7 +55,7 @@ class KunjunganAdminController extends Controller {
         }
 
 
-        echo "$namasales| $userid | $bulan | now : $bulannow |";
+        //echo "$namasales| $userid | $bulan | now : $bulannow |";
         return view('kunjunganAdmin', [
             'user' => $userdb,
             'userid' => $userid,

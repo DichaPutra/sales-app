@@ -24,7 +24,13 @@
     <body>
         <div class="container-scroller">
             <!-- partial:partials/_horizontal-navbar.html -->
+            @if (session('tipe')=='atasan')
+            @include('includes.headeratasan')
+            @elseif (session('tipe')=='admin')
             @include('includes.headeradmin')
+            @else
+            @include('includes.headersales')
+            @endif
             <!-- partial -->
             <div class="container-fluid page-body-wrapper">
                 <div class="main-panel">
@@ -32,63 +38,67 @@
                         <!-- table row starts here -->
                         <!-- doughnut chart row starts -->
                         <div class="card">
-                            <div class="card-body">
-                                <div>
-                                    <button type="kembali" class="btn-primary"><a class="text-white" href="customerAdmin"><i class="mdi mdi-arrow-left-bold"></i></a></button>
-                                </div>
-                                <br>
-                                <h4 class="card-title"></h4>
-                                <form class="forms-sample" method="post">
-                                    <div class="form-group">
-                                        <label>Nama Perusahaan</label>
-                                        <input name="nama_perusahaan" type="text" class="form-control" id="namaperusahaan" placeholder="Nama Perusahaan" />
+                            <form method="POST" action="{{route('updatecustomer')}}">
+                                @csrf
+                                <div class="card-body">
+                                    <div>
+                                        <button type="kembali" class="btn-primary"><a class="text-white" href="customer"><i class="mdi mdi-arrow-left-bold"></i></a></button>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Alamat Perusahaan</label>
-                                        <textarea name="alamat_perusahaan" type="text" class="form-control" id="alamatperusahaan" placeholder="Alamat Perusahaan"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Kontak Perusahaan</label>
-                                        <input name="kontak_perusahaan" type="text" class="form-control" id="kontakperusahaan" placeholder="Kontak Perusahaan" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Nama PIC</label>
-                                        <input name="nama_pic" type="text" class="form-control" id="namapic" placeholder="Nama PIC" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email PIC</label>
-                                        <input name="email_pic" type="text" class="form-control" id="emailpic" placeholder="Email PIC" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Kontak PIC</label>
-                                        <input name="kontak_pic" type="text" class="form-control" id="kontakpic" placeholder="Kontak PIC" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Sosial Media</label>
+                                    <br>
+                                    <h4 class="card-title"></h4>
+                                    <form class="forms-sample" method="post">
+                                        <input type="hidden" name="idcustomer" value="{{$datacustomer->id}}">
                                         <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text bg-dark text-white"><i class="mdi mdi-whatsapp"></i></span>
-                                                </div>
-                                                <input name="wa" type="text" class="form-control" placeholder="Whatsapp" />
-                                            </div>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text bg-dark text-white"><i class="mdi mdi-facebook"></i></span>
-                                                </div>
-                                                <input name="fb" type="text" class="form-control" placeholder="Facebook" />
-                                            </div>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text bg-dark text-white"><i class="mdi mdi-twitter"></i></span>
-                                                </div>
-                                                <input name="twitter" type="text" class="form-control" placeholder="Twitter" />
-                                            </div>
+                                            <label>Nama Perusahaan</label>
+                                            <input value="{{$datacustomer->nama_perusahaan}}" name="nama_perusahaan" type="text" class="form-control" id="namaperusahaan" placeholder="Nama Perusahaan" />
                                         </div>
-                                        <button type="submit" class="btn btn-primary mr-2"> Simpan </button>
-                                    </div>
-                                </form>
-                            </div>
+                                        <div class="form-group">
+                                            <label>Alamat Perusahaan</label>
+                                            <textarea name="alamat_perusahaan" type="text" class="form-control" id="alamatperusahaan" placeholder="Alamat Perusahaan">{{$datacustomer->alamat}}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kontak Perusahaan</label>
+                                            <input value="{{$datacustomer->contact_no_perusahaan}}" name="kontak_perusahaan" type="text" class="form-control" id="kontakperusahaan" placeholder="Kontak Perusahaan" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nama PIC</label>
+                                            <input value="{{$datacustomer->nama_pic}}" name="nama_pic" type="text" class="form-control" id="namapic" placeholder="Nama PIC" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email PIC</label>
+                                            <input value="{{$datacustomer->email}}" name="email_pic" type="text" class="form-control" id="emailpic" placeholder="Email PIC" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kontak PIC</label>
+                                            <input value="{{$datacustomer->contact_no_pic}}"name="kontak_pic" type="text" class="form-control" id="kontakpic" placeholder="Kontak PIC" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Sosial Media</label>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text bg-dark text-white"><i class="mdi mdi-whatsapp"></i></span>
+                                                    </div>
+                                                    <input value="{{$datacustomer->wa}}" name="wa" type="text" class="form-control" placeholder="Whatsapp" />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text bg-dark text-white"><i class="mdi mdi-facebook"></i></span>
+                                                    </div>
+                                                    <input  value="{{$datacustomer->fb}}" name="fb" type="text" class="form-control" placeholder="Facebook" />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text bg-dark text-white"><i class="mdi mdi-twitter"></i></span>
+                                                    </div>
+                                                    <input value="{{$datacustomer->twitter}}" name="twitter" type="text" class="form-control" placeholder="Twitter" />
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mr-2"> Simpan </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </form>
                         </div>
                         <!-- last row starts here -->
                         <div class="row">
