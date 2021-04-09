@@ -11,6 +11,7 @@ use App\Http\Controllers\GantiPasswordController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\TargetAdminController;
 use App\Http\Controllers\KunjunganAdminController;
+use App\Http\Controllers\UserAdminController;
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -78,18 +79,15 @@ Route::post('/insertkunjungan', [KunjunganController::class, 'insertKunjungan'])
 // KUNJUNGAN ADMIN
 Route::get('/kunjunganAdmin', [KunjunganAdminController::class, 'index'])->name('kunjunganAdmin');
 
-// CUSTOMER ADMIN
-Route::get('/customerAdmin', function () {
-    return view('customerAdmin');
-})->name('customerAdmin');
-Route::get('/editcustomer', function () {
-    return view('editcustomer');
-});
-
 // USER ADMIN
-Route::get('/userAdmin', function () {
-    return view('userAdmin');
-});
+Route::get('/useradmin', [UserAdminController::class, 'index'])->name('useradmin');
+Route::post('/adduser', [UserAdminController::class, 'addUser'])->name('adduser');
+Route::post('/edituser', [UserAdminController::class, 'editUser'])->name('edituser');
+Route::get('/deleteuser/{id}', [UserAdminController::class, 'deleteUser'])->name('deleteuser');
+
+//Route::get('/userAdmin', function () {
+//    return view('userAdmin');
+//});
 
 Route::get('/coba', function () {
     return view('coba');

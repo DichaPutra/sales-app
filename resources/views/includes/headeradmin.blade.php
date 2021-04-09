@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('userAdmin')}}">
+                    <a class="nav-link" href="{{url('useradmin')}}">
                         <i class="mdi mdi-account menu-icon"></i>
                         <span class="menu-title">User</span>
                     </a>
