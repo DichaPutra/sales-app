@@ -122,14 +122,49 @@
                                   <td scope="row" class="title">
                                                 <div class="toolbox">
                                                     <center>
-                                                        <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#rubahStatusModal"></i></a>
+                                                        @if ($kunj->status == 'tercapai')
                                                         <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#editModal"></i></a>
+                                                        @else
+                                                        <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#rubahStatusModal{{$kunj->id}}"></i></a>
+                                                        @endif
                                                         &emsp;
                                                         <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
                                                     </center>
                                                 </div>
                                          </td>
                                     </tr>
+                                    
+                                                    <!-- ========= Modal Rubah Status ========= -->
+                                                    <div id="rubahStatusModal{{$kunj->id}}" class="modal fade" role="dialog">
+                                                        <div class="modal-dialog">
+                                                            <!-- konten modal-->
+                                                            <div class="modal-content">
+                                                                
+                                                                <!-- heading modal -->
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">Rubah Status Capaian</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                </div>
+                                                                <!-- body modal -->
+                                                                <form method="GET" action="updateStatusKunjungan">
+                                                                    <input type="hidden" name="idkunjungan" value="{{$kunj->id}}">
+                                                                    <div class="modal-body">
+                                                                    <select name="status" class="form-control">
+                                                                        <option value="tidak tercapai" @if ($kunj->status == 'tidak tercapai') selected @endif >Tidak Tercapai</option>
+                                                                        <option value="disetujui" @if ($kunj->status == 'disetujuii') selected @endif >Disetujui</option>
+                                                                        <option value="tidak disetujui" @if ($kunj->status == 'tidak disetujui') selected @endif >Tidak Disetujui</option>
+                                                                    </select>
+                                                                    </div>
+                                                                
+                                                                    <!-- footer modal -->
+                                                                    <div class="modal-footer">
+                                                                        <input type="submit" class="btn btn-primary pull-right mb-4" value="Simpan">
+                                                                    </div>
+                                                            </form>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                    
                                     @endforeach
                                     @endif
                                         
@@ -184,31 +219,7 @@
                                                             </center>
                                                         </div></td>
                                                     </tr>
-                                                    <!-- Modal Rubah Status-->
-                                                    <div id="rubahStatusModal" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog">
-                                                            <!-- konten modal-->
-                                                            <div class="modal-content">
-                                                                <!-- heading modal -->
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Rubah Status Capaian</h4>
-                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                </div>
-                                                                <!-- body modal -->
-                                                                <div class="modal-body">
-                                                                  <select name="status_sales" class="form-control">
-                                                                    <option>Tidak Tercapai</option>
-                                                                    <option>Disetujui</option>
-                                                                    <option>Tidak Disetujui</option>
-                                                                </select>
-                                                            </div>
-                                                            <!-- footer modal -->
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary pull-right mb-4">Simpan</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                                 <!-- Modal Edit Data Kunjungan-->
                                                 <div id="editModal" class="modal fade" role="dialog">
                                                     <div class="modal-dialog">

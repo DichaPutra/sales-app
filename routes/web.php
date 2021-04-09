@@ -78,6 +78,7 @@ Route::post('/insertkunjungan', [KunjunganController::class, 'insertKunjungan'])
 
 // KUNJUNGAN ADMIN
 Route::get('/kunjunganAdmin', [KunjunganAdminController::class, 'index'])->name('kunjunganAdmin');
+Route::get('/updateStatusKunjungan', [KunjunganAdminController::class, 'updateStatusKunjungan'])->name('updateStatusKunjungan');
 
 // USER ADMIN
 Route::get('/useradmin', [UserAdminController::class, 'index'])->name('useradmin');

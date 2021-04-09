@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\user;
+use App\Models\kunjungan;
 
 class UserAdminController extends Controller {
 
@@ -52,6 +53,7 @@ class UserAdminController extends Controller {
 
     public function deleteUser($id) {
         user::where('id', $id)->delete();
+        kunjungan::where('user_id',$id)->delete();
         return back();
     }
 
