@@ -64,13 +64,30 @@ class KunjunganAdminController extends Controller {
 
     public function updateStatusKunjungan(Request $request) {
         //echo "id = $request->idkunjungan | $request->status ";
-        
+
         $kunjungan = kunjungan::find($request->idkunjungan);
         $kunjungan->status = $request->status;
-        $kunjungan->save(); 
+        $kunjungan->save();
+
+        return back();
+    }
+
+    public function deleteKunjungan($id) {
+
+        //ambil data status
+        $kunjungan = kunjungan::where('id', $id)->first();
+        //dd($kunjungan->status);
+        
+        if ($kunjungan->status == 'tercapai') {
+            // delete data db dan foto
+            kunjungan::where('id', $id)->delete();
+            
+        } else {
+            // delete data db saja
+            kunjungan::where('id', $id)->delete();
+        };
         
         return back();
-        
     }
 
 }

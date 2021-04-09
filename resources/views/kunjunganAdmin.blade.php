@@ -128,7 +128,7 @@
                                                         <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#rubahStatusModal{{$kunj->id}}"></i></a>
                                                         @endif
                                                         &emsp;
-                                                        <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
+                                                        <a href="{{url('deleteKunjungan/'.$kunj->id)}}"style="color: #cc0000;font-size:20px" onClick="confirm('Apakah anda yakin menghapus kunjungan ini ?')"><i class="mdi mdi-delete"></i></a>
                                                     </center>
                                                 </div>
                                          </td>
@@ -261,28 +261,6 @@
                                                          <!-- footer modal -->
                                                          <div class="modal-footer">
                                                             <button type="button" class="btn btn-primary pull-right mb-4">Simpan</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Modal Hapus Data Kunjungan-->
-                                            <div id="hapusModal" class="modal fade" role="dialog">
-                                                <div class="modal-dialog">
-                                                    <!-- konten modal-->
-                                                    <div class="modal-content">
-                                                        <!-- heading modal -->
-                                                        <div class="modal-header">
-                                                                <h4 class="modal-title"></h4>
-                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                            </div>
-                                                        <!-- body modal -->
-                                                        <div class="modal-body">
-                                                            <p>Apakah anda yakin menghapus kunjungan ini ?</p>
-                                                        </div>
-                                                        <!-- footer modal -->
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-danger pull-right mb-4">Ya</button>
-                                                            <button type="button" class="btn btn-primary pull-right mb-4" data-dismiss="modal">Tidak</button>
                                                         </div>
                                                     </div>
                                                 </div>
