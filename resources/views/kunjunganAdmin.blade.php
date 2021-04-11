@@ -42,7 +42,7 @@
                                                 ===========================================================
                                                 -->
                                <form method="GET" action="{{route('kunjunganAdmin')}}"class="forms-sample">
-                                @csrf
+                                    @csrf
                                                 <div class="card-title">
                                                     <br>
                                                     <h4 class="card-title">Nama Sales</h4>
@@ -85,7 +85,7 @@
                                             </div>
                                         </div>
                                     </div>
-                            </div>
+                                    </div>
                                </form>
                         <h2 class="text-center"><?php echo $namasales; ?></h2>
                         <div class="table-responsive">
@@ -101,7 +101,7 @@
 
                           @if ($kunjungan != null)
                           @foreach($kunjungan as $kunj)
-                            <tr>
+                                <tr>
                                   <td class="priority-5"><center>{{$kunj->tanggal}}</center></td>
                                   <td scope="row" class="title">{{$kunj->nama_perusahaan}}</td>
                                   <td scope="row" class="title">
@@ -123,7 +123,7 @@
                                                 <div class="toolbox">
                                                     <center>
                                                         @if ($kunj->status == 'tercapai')
-                                                        <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#editModal"></i></a>
+                                                        <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#editModal{{$kunj->id}}"></i></a>
                                                         @else
                                                         <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#rubahStatusModal{{$kunj->id}}"></i></a>
                                                         @endif
@@ -132,9 +132,11 @@
                                                     </center>
                                                 </div>
                                          </td>
-                                    </tr>
+                                </tr>
                                     
-                                                    <!-- ========= Modal Rubah Status ========= -->
+                                                    <!-- =======================================
+                                                    ========= Modal Rubah Status ========= 
+                                                    ============================================-->
                                                     <div id="rubahStatusModal{{$kunj->id}}" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
                                                             <!-- konten modal-->
@@ -146,9 +148,13 @@
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                 </div>
                                                                 <!-- body modal -->
-                                                                <form method="GET" action="updateStatusKunjungan">
+                                                                <form method="GET" action="{{route('updateStatusKunjungan')}}">
                                                                     <input type="hidden" name="idkunjungan" value="{{$kunj->id}}">
                                                                     <div class="modal-body">
+                                                                        <h4>Alasan :</h4>
+                                                                        {{$kunj->alasan}}<br><br><br>
+                                                                        
+                                                                     <h4>Status : </h4>   
                                                                     <select name="status" class="form-control">
                                                                         <option value="tidak tercapai" @if ($kunj->status == 'tidak tercapai') selected @endif >Tidak Tercapai</option>
                                                                         <option value="disetujui" @if ($kunj->status == 'disetujuii') selected @endif >Disetujui</option>
@@ -164,64 +170,12 @@
                                                             </div>
                                                     </div>
                                                 </div>
-                                    
-                                    @endforeach
-                                    @endif
-                                        
-                                        <tr>
-                                            <td class="priority-5"><center>1</center></td>
-                                            <td scope="row" class="title">Tidak Melakukan Kunjungan</td>
-                                            <td>
-                                                <center>
-                                                    <div class="box-merah"></div>
-                                                </center>
-                                            </td>
-                                            <td>
-                                                <div class="toolbox">
-                                                    <center>
-                                                        <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#rubahStatusModal"></i></a>
-                                                        &emsp;
-                                                        <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
-                                                    </center>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                            <tr>
-                                                <td class="priority-5"><center>2</center></td>
-                                                <td scope="row" class="title">PT. Indofood</center></td>
-                                                <td>
-                                                    <center>
-                                                        <div class="box-hijau"></div>
-                                                    </center>
-                                                </td>
-                                                    <td>
-                                                        <div class="toolbox">
-                                                            <center>
-                                                                <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#editModal"></i></a>
-                                                                &emsp;
-                                                                <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
-                                                            </center>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="priority-5"><center>3</center></td>
-                                                    <td scope="row" class="title">Tidak Melakukan Kunjungan</center></td>
-                                                    <td>
-                                                        <center>
-                                                            <div class="box-kuning"></div>
-                                                        </center></td>
-                                                        <td><div class="toolbox">
-                                                            <center>
-                                                                <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#rubahStatusModal"></i></a>
-                                                                &emsp;
-                                                                <a style="color: #cc0000;font-size:20px"><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a>
-                                                            </center>
-                                                        </div></td>
-                                                    </tr>
-
-                                                <!-- Modal Edit Data Kunjungan-->
-                                                <div id="editModal" class="modal fade" role="dialog">
+                                                
+                                               <!-- =======================================
+                                                    ========= Modal Rubah Status ==========
+                                                    =======================================-->
+                                                                                                    <!-- Modal Edit Data Kunjungan-->
+                                                <div id="editModal{{$kunj->id}}" class="modal fade" role="dialog">
                                                     <div class="modal-dialog">
                                                         <!-- konten modal-->
                                                         <div class="modal-content">
@@ -232,39 +186,56 @@
 
                                                             </div>
                                                             <!-- body modal -->
+                                                            <form method="post" action="{{route('updateKunjungan')}}">
+                                                                @csrf
                                                             <div class="modal-body">
+                                                                <input name="id" type="hidden" value="{{$kunj->id}}"
                                                              <label for="nama_pic">Customer</label>
-                                                             <input name="customer" class="form-control" type="text"/>
-                                                             <br>
+                                                             <!--<input value="{{$kunj->nama_perusahaan}}" name="customer" class="form-control" type="text"/>-->
+                                                             <input value="{{$kunj->nama_perusahaan}}" name="customer" class="form-control" type="text" list="cust" />
+                                                             <datalist id="cust">
+                                                                @foreach ($customer as $cust)
+                                                                <option value="{{$cust->nama_perusahaan}}">{{$cust->nama_perusahaan}}</option>
+                                                                @endforeach
+                                                             </datalist><br>
 
                                                              <label for="nama_pic">Nama PIC yang ditemui</label>
-                                                             <input name="namapic" type="text" class="form-control" id="nama_pic"><br>
+                                                             <input value="{{$kunj->nama_pic}}" name="namapic" type="text" class="form-control" id="nama_pic"><br>
 
                                                              <label for="contact_no_pic">Kontak PIC yang ditemui</label>
-                                                             <input name="kontakpic" type="number" class="form-control" id="contact_no_pic"><br>
+                                                             <input value="{{$kunj->contact_no_pic}}" name="kontakpic" type="number" class="form-control" id="contact_no_pic"><br>
 
                                                              <label for="produk">Produk yang akan dibeli</label>
-                                                             <textarea name="produk"class="form-control" id="produk"></textarea><br>
+                                                             <textarea name="produk"class="form-control" id="produk">{{$kunj->produk}}</textarea><br>
 
                                                              <label for="harga">Kisaran Harga</label>
-                                                             <input name="kisaranharga" type="number" min="1" step="any" class="form-control" id="harga"><br>
+                                                             <input value="{{$kunj->harga}}" name="kisaranharga" type="number" min="1" step="any" class="form-control" id="harga"><br>
 
                                                              <label for="waktu_pembelian">Perkiraan Waktu Pembelian</label>
-                                                             <input name="waktu" class="form-control" type="date" value="" id="example-date-input"><br>
+                                                             <input value="{{$kunj->waktu_pembelian}}" name="waktu" class="form-control" type="date" value="" id="example-date-input"><br>
 
                                                              <label for="lainlain">Lain - Lain</label>
-                                                             <textarea name="lainlain" type="text" class="form-control" id="lainlain"></textarea><br>
+                                                             <textarea name="lainlain" type="text" class="form-control" id="lainlain">{{$kunj->lainlain}}</textarea><br>
 
                                                              <label for="foto">Foto saat kunjungan</label><br>
-                                                             <input name="filefoto" type="file">
+                                                             <?php $imageurl = str_replace('public/', '', $kunj->foto) ?>
+                                                             <img src="{{url('storage/'.$imageurl)}}" alt="image" style="width:100%;">
+<!--                                                             <input name="filefoto" type="file">-->
                                                          </div>
                                                          <!-- footer modal -->
                                                          <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary pull-right mb-4">Simpan</button>
+                                                             <input type="submit" class="btn btn-primary pull-right mb-4" value="Simpan">
                                                         </div>
+                                                         </form>
+                                                            
                                                     </div>
                                                 </div>
                                             </div>
+                                    
+                                    @endforeach
+                                    @endif
+
+
                                         </tbody>
                                     </table>
                                 </div>

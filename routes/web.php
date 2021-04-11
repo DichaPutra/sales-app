@@ -80,6 +80,7 @@ Route::post('/insertkunjungan', [KunjunganController::class, 'insertKunjungan'])
 Route::get('/kunjunganAdmin', [KunjunganAdminController::class, 'index'])->name('kunjunganAdmin');
 Route::get('/updateStatusKunjungan', [KunjunganAdminController::class, 'updateStatusKunjungan'])->name('updateStatusKunjungan');
 Route::get('/deleteKunjungan/{id}',[KunjunganAdminController::class, 'deleteKunjungan'])->name('deleteKunjungan');
+Route::post('/updateKunjungan', [KunjunganAdminController::class, 'updateKunjungan'])->name('updateKunjungan');
 
 // USER ADMIN
 Route::get('/useradmin', [UserAdminController::class, 'index'])->name('useradmin');

@@ -144,7 +144,7 @@
                                                                     <textarea type="text" class="form-control" id="lainlain" readonly>{{$dt->lainlain}}</textarea>
                                                                 </div>
                                                                 <div class="form-group">
-<?php $imageurl = str_replace('public/', '', $dt->foto) ?>
+                                                                <?php $imageurl = str_replace('public/', '', $dt->foto) ?>
                                                                     <label for="foto">Foto saat kunjungan</label><br>
                                                                     <img src="{{url('storage/'.$imageurl)}}" alt="image" style="width:100%;">
                                                                     <!--<img id="foto" src="../assets/images/salesproject.jpg" alt="image" style="width:100%;" />-->
