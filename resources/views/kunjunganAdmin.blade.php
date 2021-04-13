@@ -128,7 +128,7 @@
                                                         <a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#rubahStatusModal{{$kunj->id}}"></i></a>
                                                         @endif
                                                         &emsp;
-                                                        <a href="{{url('deleteKunjungan/'.$kunj->id)}}"style="color: #cc0000;font-size:20px" onClick="confirm('Apakah anda yakin menghapus kunjungan ini ?')"><i class="mdi mdi-delete"></i></a>
+                                                        <a href="{{url('deleteKunjungan/'.$kunj->id)}}"style="color: #cc0000;font-size:20px" onClick="return confirm('Apakah anda yakin menghapus kunjungan ini ?')"><i class="mdi mdi-delete"></i></a>
                                                     </center>
                                                 </div>
                                          </td>

@@ -75,7 +75,7 @@
                                                     <div class="toolbox">
                                                         <center><a href="editcustomer/{{$customer->id}}" style="color: blue;font-size:20px"><i class="mdi mdi-pencil"></i></a>
                                                         &emsp;&emsp;
-                                                        <a href="deletecustomer/{{$customer->id}}"style="color: #cc0000;font-size:20px;" onClick="confirm('Apakah anda yakin menghapus customer ini ?')" ><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a></center>
+                                                        <a href="deletecustomer/{{$customer->id}}"style="color: #cc0000;font-size:20px;" onClick="return confirm('Apakah anda yakin menghapus customer ini ?')" ><i class="mdi mdi-delete" data-toggle="modal" data-target="#hapusModal"></i></a></center>
                                                     </div>
                                                 </td>
                                                 @endif

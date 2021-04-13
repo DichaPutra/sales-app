@@ -123,7 +123,8 @@
                                         <td><div class="toolbox">
                                                 <center><a style="color: blue;font-size:20px"><i class="mdi mdi-pencil" data-toggle="modal" data-target="#editUser{{$dat->id}}"></i></a>
                                                     &emsp;&emsp;
-                                                    <a href="deleteuser/{{$dat->id}}" style="color: #cc0000;font-size:20px" onClick="confirm('Apakah anda yakin menghapus User ini ?')"><i class="mdi mdi-delete"></i></a></center>
+                                                    <a href="deleteuser/{{$dat->id}}" style="color: #cc0000;font-size:20px" 
+                                                       onclick="return confirm('Apakah anda yakin menghapus User ini ?')"><i class="mdi mdi-delete"></i></a></center>
                                             </div>
                                         </td>
                                         </tr>
